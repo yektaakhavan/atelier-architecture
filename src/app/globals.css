@@ -1,5 +1,120 @@
 @import "tailwindcss";
 
-body {
-  margin: 0;
+/* Theme is driven by [data-theme] on <html>; set before first paint by lib/theme.ts. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Design tokens. Original brief colours are kept where they pass contrast;
+ * olive and brick are too light for body text on the paper background
+ * (4.0:1 and 3.7:1), so *-ink variants are used for text and the originals
+ * stay decorative (rules, large shapes, fills).
+ */
+:root {
+  --background: #f5f3ee;
+  --surface: #ffffff;
+  --foreground: #252723;
+  --muted: #5c5f55; /* 5.9:1 on background */
+  --line: rgb(37 39 35 / 0.16);
+  --olive: #737b60;
+  --olive-ink: #58603f; /* 6.0:1 on background */
+  --brick: #b66a4a;
+  --accent: #a85a3a; /* solid fill, white text 5.0:1 */
+  --accent-foreground: #ffffff;
+  --accent-ink: #94502f; /* 5.5:1 on background */
+  --ring: #94502f;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --background: #171916;
+  --surface: #222520;
+  --foreground: #f0efe8;
+  --muted: #a3a599; /* 7.1:1 on background */
+  --line: rgb(240 239 232 / 0.16);
+  --olive: #8a9374;
+  --olive-ink: #a9b392; /* 8.0:1 on background */
+  --brick: #c98062;
+  --accent: #d9926f; /* solid fill, dark text 7.0:1 */
+  --accent-foreground: #171916;
+  --accent-ink: #d9926f; /* 7.0:1 on background */
+  --ring: #d9926f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-olive: var(--olive);
+  --color-olive-ink: var(--olive-ink);
+  --color-brick: var(--brick);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-ink: var(--accent-ink);
+  --color-ring: var(--ring);
+
+  /* Latin fonts first; Persian glyphs fall through to Vazirmatn per character. */
+  --font-sans: var(--font-latin-sans), var(--font-persian), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-latin-serif), var(--font-persian), ui-serif, Georgia, serif;
+
+  --text-display: clamp(3rem, 9vw, 8rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+  --text-headline: clamp(2rem, 4.5vw, 3.75rem);
+  --text-headline--line-height: 1.05;
+  --text-headline--letter-spacing: -0.02em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 250ms ease,
+      color 250ms ease;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+ * Unlayered on purpose so it beats Tailwind's tracking-* utilities:
+ * letter-spacing breaks the joining of Arabic-script letters.
+ */
+:lang(fa),
+:lang(fa) * {
+  letter-spacing: 0;
+}
+:lang(fa) body {
+  line-height: 1.9;
 }
