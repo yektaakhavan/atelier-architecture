@@ -4,13 +4,15 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { getDirection } from "@/features/localization/locales";
 import { routing } from "@/i18n/routing";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
 import { fontVariables } from "@/lib/fonts";
 import { siteUrl } from "@/lib/seo";
 import { themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
 // Client components only receive the namespaces they use; the rest stays on the server.
-const CLIENT_NAMESPACES = ["Theme", "LanguageSwitcher"] as const;
+const CLIENT_NAMESPACES = ["Theme", "LanguageSwitcher", "Nav"] as const;
 
 type LayoutProps = { children: React.ReactNode; params: Promise<{ locale: string }> };
 
@@ -40,7 +42,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  const [messages, nav] = await Promise.all([getMessages(), getTranslations("Nav")]);
   const clientMessages = Object.fromEntries(CLIENT_NAMESPACES.map((ns) => [ns, messages[ns]]));
 
   return (
@@ -55,7 +57,19 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:bg-foreground focus:px-4 focus:py-3 focus:text-background"
+          >
+            {nav("skipToContent")}
+          </a>
+          <SiteHeader />
+          <main id="main-content" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
+          <SiteFooter />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

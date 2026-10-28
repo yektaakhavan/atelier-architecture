@@ -16,5 +16,32 @@
     "previewDescription": "Tokens, typography and base components, previewed in both themes.",
     "taglineLead": "Quiet",
     "taglineAccent": "spaces"
+  },
+  "Nav": {
+    "primary": "Primary",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About",
+    "journal": "Journal",
+    "contact": "Contact"
+  },
+  "Footer": {
+    "blurb": "ATELIER is a fictional architecture studio created as a frontend portfolio project. Every project, person and contact detail on this site is sample content.",
+    "explore": "Explore",
+    "contact": "Contact",
+    "address": "12 Sample Street, Example City",
+    "social": "Social (sample)",
+    "rights": "© {year} ATELIER. Portfolio demo, not a real company."
+  },
+  "NotFound": {
+    "title": "This page does not exist",
+    "description": "The address may be mistyped, or the page may have moved. Try one of these instead.",
+    "home": "Back to home",
+    "services": "Our services",
+    "contact": "Contact us"
   }
 }

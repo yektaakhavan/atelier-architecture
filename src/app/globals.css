@@ -111,8 +111,7 @@
  * Unlayered on purpose so it beats Tailwind's tracking-* utilities:
  * letter-spacing breaks the joining of Arabic-script letters.
  */
-:lang(fa),
-:lang(fa) * {
+:lang(fa) {
   letter-spacing: 0;
 }
 :lang(fa) body {
