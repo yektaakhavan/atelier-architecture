@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { CtaBand } from "@/components/home/cta-band";
 import { ExpertiseList } from "@/components/home/expertise-list";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { Hero } from "@/components/home/hero";
 import { MoreProjects } from "@/components/home/more-projects";
 import { StudioIntro } from "@/components/home/studio-intro";
 import { StudioStats } from "@/components/home/studio-stats";
+import { CtaBand } from "@/components/shared/cta-band";
 import { routing } from "@/i18n/routing";
 import { localizedAlternates } from "@/lib/seo";
 
@@ -24,6 +24,7 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations("Home");
 
   return (
     <>
@@ -33,7 +34,7 @@ export default async function HomePage({ params }: PageProps) {
       <StudioStats />
       <ExpertiseList />
       <MoreProjects />
-      <CtaBand />
+      <CtaBand id="home-cta" title={t("ctaTitle")} text={t("ctaText")} button={t("ctaButton")} />
     </>
   );
 }
