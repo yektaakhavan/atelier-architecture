@@ -2,13 +2,14 @@
 
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import { navItems } from "@/config/site";
 import { LanguageSwitcher } from "@/features/localization/language-switcher";
 import { ThemeToggle } from "@/features/theme/theme-toggle";
 import { usePathname } from "@/i18n/navigation";
+import { useScrollLock } from "@/hooks/use-scroll-lock";
 import { cn } from "@/lib/cn";
 import { isActivePath } from "@/lib/navigation";
 import { Logo } from "./logo";
@@ -20,13 +21,7 @@ export function SiteHeader() {
   const menuId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // The dialog covers the viewport, so freeze the page behind it while it is open.
-  useEffect(() => {
-    document.documentElement.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.documentElement.style.overflow = "";
-    };
-  }, [menuOpen]);
+  useScrollLock(menuOpen);
 
   const openMenu = () => {
     dialogRef.current?.showModal();

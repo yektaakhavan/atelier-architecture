@@ -54,7 +54,9 @@
     "services": "Services",
     "about": "About",
     "journal": "Journal",
-    "contact": "Contact"
+    "contact": "Contact",
+    "home": "Home",
+    "breadcrumb": "Breadcrumb"
   },
   "Footer": {
     "blurb": "ATELIER is a fictional architecture studio created as a frontend portfolio project. Every project, person and contact detail on this site is sample content.",
@@ -302,5 +304,31 @@
       "messageTooLong": "Please keep the message under 2000 characters.",
       "phoneRequired": "Please enter a phone number or choose email."
     }
+  },
+  "ProjectDetail": {
+    "back": "Back to all projects",
+    "location": "Location",
+    "year": "Year",
+    "type": "Type",
+    "area": "Area",
+    "services": "Services",
+    "team": "Team",
+    "areaValue": "{value, number} m²",
+    "concept": "Concept",
+    "approach": "Design approach",
+    "materials": "Materials",
+    "challenges": "Challenge and solution",
+    "challengeLabel": "Challenge",
+    "solutionLabel": "Solution",
+    "gallery": "Gallery",
+    "galleryNote": "Placeholder illustrations stand in for project photography.",
+    "related": "Related projects",
+    "openImage": "Open image {n} of {total}",
+    "imageAlt": "{title}, illustration {n}",
+    "lightboxLabel": "Image viewer",
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image",
+    "counter": "{current, number} / {total, number}"
   }
 }

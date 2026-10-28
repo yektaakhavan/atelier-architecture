@@ -54,7 +54,9 @@
     "services": "خدمات",
     "about": "درباره ما",
     "journal": "مجله",
-    "contact": "تماس"
+    "contact": "تماس",
+    "home": "خانه",
+    "breadcrumb": "مسیر صفحه"
   },
   "Footer": {
     "blurb": "ATELIER یک استودیوی معماری فرضی است که به‌عنوان نمونه‌کار فرانت‌اند ساخته شده. همه پروژه‌ها، افراد و اطلاعات تماس این سایت محتوای نمونه هستند.",
@@ -302,5 +304,31 @@
       "messageTooLong": "لطفاً پیام را کمتر از ۲۰۰۰ نویسه نگه دارید.",
       "phoneRequired": "لطفاً شماره تلفن وارد کنید یا ایمیل را انتخاب کنید."
     }
+  },
+  "ProjectDetail": {
+    "back": "بازگشت به همه پروژه‌ها",
+    "location": "مکان",
+    "year": "سال",
+    "type": "نوع",
+    "area": "مساحت",
+    "services": "خدمات",
+    "team": "تیم",
+    "areaValue": "{value, number} متر مربع",
+    "concept": "مفهوم",
+    "approach": "رویکرد طراحی",
+    "materials": "مصالح",
+    "challenges": "چالش و راه‌حل",
+    "challengeLabel": "چالش",
+    "solutionLabel": "راه‌حل",
+    "gallery": "گالری",
+    "galleryNote": "تصویرسازی‌های نمونه جای عکس‌های پروژه را گرفته‌اند.",
+    "related": "پروژه‌های مرتبط",
+    "openImage": "باز کردن تصویر {n} از {total}",
+    "imageAlt": "{title}، تصویرسازی {n}",
+    "lightboxLabel": "نمایشگر تصویر",
+    "close": "بستن",
+    "previous": "تصویر قبلی",
+    "next": "تصویر بعدی",
+    "counter": "{current, number} / {total, number}"
   }
 }
