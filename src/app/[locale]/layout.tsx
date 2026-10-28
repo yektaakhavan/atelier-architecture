@@ -12,7 +12,7 @@ import { themeInitScript } from "@/lib/theme";
 import "../globals.css";
 
 // Client components only receive the namespaces they use; the rest stays on the server.
-const CLIENT_NAMESPACES = ["Theme", "LanguageSwitcher", "Nav"] as const;
+const CLIENT_NAMESPACES = ["Theme", "LanguageSwitcher", "Nav", "Contact", "Projects"] as const;
 
 type LayoutProps = { children: React.ReactNode; params: Promise<{ locale: string }> };
 

@@ -227,5 +227,55 @@
     "ctaTitle": "Let's talk about your site.",
     "ctaText": "If you have a project in mind, the contact form (a demo) shows how the conversation would start.",
     "ctaButton": "Contact the studio"
+  },
+  "Contact": {
+    "metaTitle": "Contact",
+    "metaDescription": "Start a conversation with ATELIER, a fictional architecture studio. The contact form is a demo and sends nothing.",
+    "eyebrow": "Contact",
+    "title": "Tell us about your site.",
+    "intro": "Describe the plot, the brief or the feeling you are after. If this studio were real, we would read every message.",
+    "demoTitle": "Demo form",
+    "demoNotice": "Nothing you enter here is sent or stored. The form demonstrates validation, loading and result states for a portfolio.",
+    "detailsTitle": "Studio details (sample)",
+    "name": "Your name",
+    "email": "Email",
+    "subject": "Subject",
+    "projectType": "Project type",
+    "budget": "Approximate budget",
+    "preferredContact": "Preferred way to reply",
+    "phone": "Phone number",
+    "message": "Message",
+    "messageHint": "A few sentences about the site, the timing and what you want to build.",
+    "phoneHint": "Only used if you prefer a phone call.",
+    "optional": "(optional)",
+    "selectPlaceholder": "Choose an option",
+    "projectTypeOther": "Something else",
+    "budgets": {
+      "undecided": "Not decided yet",
+      "small": "Small project",
+      "medium": "Medium project",
+      "large": "Large project"
+    },
+    "methods": {
+      "email": "Email",
+      "phone": "Phone call"
+    },
+    "submit": "Send request",
+    "sending": "Sending…",
+    "successTitle": "Thank you, message received (demo)",
+    "successText": "This was a demonstration: your message was not sent to anyone. A real deployment would deliver it to the studio through a backend or a form service.",
+    "sendAnother": "Send another message",
+    "errorTitle": "Something went wrong",
+    "errorText": "The demo could not complete the request. Your entries are still here, so you can try again.",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "That email address does not look right.",
+      "subjectRequired": "Please add a short subject.",
+      "projectTypeRequired": "Please choose a project type.",
+      "messageTooShort": "Please write at least 20 characters so we can understand your request.",
+      "messageTooLong": "Please keep the message under 2000 characters.",
+      "phoneRequired": "Please enter a phone number or choose email."
+    }
   }
 }
