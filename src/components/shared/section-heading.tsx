@@ -2,6 +2,8 @@ import { cn } from "@/lib/cn";
 
 type SectionHeadingProps = {
   title: string;
+  /** Lets a parent <section> reference this heading with aria-labelledby. */
+  id?: string;
   eyebrow?: string;
   description?: string;
   /** Visual size is independent of the level, which should follow the page outline. */
@@ -11,6 +13,7 @@ type SectionHeadingProps = {
 
 export function SectionHeading({
   title,
+  id,
   eyebrow,
   description,
   level = 2,
@@ -26,7 +29,9 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <Heading className="text-headline font-medium text-balance">{title}</Heading>
+      <Heading id={id} className="text-headline font-medium text-balance">
+        {title}
+      </Heading>
       {description ? <p className="max-w-2xl text-lg text-muted">{description}</p> : null}
     </div>
   );

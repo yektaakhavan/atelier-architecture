@@ -11,11 +11,38 @@
     "label": "Language"
   },
   "Home": {
-    "previewEyebrow": "Design system",
-    "previewTitle": "ATELIER — Architecture & Living",
-    "previewDescription": "Tokens, typography and base components, previewed in both themes.",
-    "taglineLead": "Quiet",
-    "taglineAccent": "spaces"
+    "heroEyebrow": "Contemporary architecture & interiors",
+    "heroTitle": "Architecture that <em>listens</em> to the site.",
+    "heroText": "ATELIER is a fictional studio designing homes, workplaces and public rooms around light, material and the quiet of well-judged space.",
+    "ctaProjects": "View projects",
+    "ctaAbout": "About the studio",
+    "heroCaption": "Sample illustration: placeholder artwork for a fictional studio.",
+    "featuredEyebrow": "Selected work",
+    "featuredTitle": "Recent projects",
+    "featuredViewAll": "All projects",
+    "studioEyebrow": "The studio",
+    "studioTitle": "Quiet buildings, carefully made.",
+    "studioText1": "We believe good architecture is mostly attention: to the sun on a wall at four in the afternoon, to the way a hand meets a door, to what a building will need in fifty years.",
+    "studioText2": "Our small team works across homes, workplaces and cultural rooms, drawing every project from the site outwards and building it from materials that age well.",
+    "valueLightTitle": "Light first",
+    "valueLightText": "Plans and sections are shaped by how daylight moves through the day.",
+    "valueMaterialTitle": "Honest materials",
+    "valueMaterialText": "Timber, lime, stone and brick, left to show how they are made.",
+    "valueLongevityTitle": "Built to last",
+    "valueLongevityText": "Details that are easy to repair and buildings that can change use.",
+    "statsEyebrow": "In numbers",
+    "statsNote": "Figures are drawn from this demo's sample data, not from a real practice.",
+    "statProjects": "Sample projects",
+    "statTypes": "Project types",
+    "statYears": "Years covered",
+    "statLanguages": "Languages",
+    "expertiseEyebrow": "Expertise",
+    "expertiseTitle": "What we design",
+    "moreEyebrow": "More work",
+    "moreTitle": "Also in the archive",
+    "ctaTitle": "Have a site in mind?",
+    "ctaText": "Tell us about the plot, the brief or just the feeling you are after. The form on the contact page is a demo, but it shows how the conversation would start.",
+    "ctaButton": "Start a project"
   },
   "Nav": {
     "primary": "Primary",
@@ -43,5 +70,105 @@
     "home": "Back to home",
     "services": "Our services",
     "contact": "Contact us"
+  },
+  "Projects": {
+    "illustrationOf": "Illustration of {title}",
+    "categories": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "interior": "Interior design",
+      "hospitality": "Hospitality",
+      "cultural": "Cultural",
+      "renovation": "Renovation"
+    }
+  },
+  "Services": {
+    "metaTitle": "Services",
+    "metaDescription": "Residential, villa, interior, commercial, renovation, sustainable and concept design from a fictional architecture studio.",
+    "eyebrow": "Services",
+    "title": "From first sketch to the last joint.",
+    "intro": "Seven areas of practice, each with a clear way of working. Every service below shows how we usually approach it and the sample projects that relate to it.",
+    "process": "How it works",
+    "relatedProjects": "Related projects",
+    "cta": "Discuss this service",
+    "items": {
+      "residential": {
+        "title": "Residential architecture",
+        "summary": "Homes shaped around daily routines, orientation and the way light moves through a day.",
+        "description": "From single-family houses to small apartment buildings, we start with how people actually live and let the plan, section and openings follow.",
+        "step1Title": "Listen",
+        "step1Text": "A brief built from your routines, site walks and a short list of non-negotiables.",
+        "step2Title": "Draw",
+        "step2Text": "Plans and sections tested in physical and digital models until the rooms feel right.",
+        "step3Title": "Build",
+        "step3Text": "Detailed drawings and site visits so the finished house matches the intent."
+      },
+      "villa": {
+        "title": "Villa design",
+        "summary": "Larger houses and retreats where landscape, privacy and craft carry as much weight as the plan.",
+        "description": "Villas ask for a clear relationship to terrain and climate. We design buildings and outdoor rooms together, from entry sequence to material palette.",
+        "step1Title": "Survey the land",
+        "step1Text": "Sun, wind, views and drainage are mapped before the first line is drawn.",
+        "step2Title": "Compose",
+        "step2Text": "Volumes, courtyards and terraces are arranged to frame views and protect privacy.",
+        "step3Title": "Detail",
+        "step3Text": "Joinery, stone and planting schedules are specified as part of the architecture."
+      },
+      "interior": {
+        "title": "Interior design",
+        "summary": "Rooms resolved down to the joint: natural timber, lime, stone and light-led layouts.",
+        "description": "We design interiors as part of the building, not a coat of paint over it. Furniture, lighting and surfaces are chosen as one system.",
+        "step1Title": "Define",
+        "step1Text": "Use, mood and budget are agreed through a concise interior brief.",
+        "step2Title": "Compose",
+        "step2Text": "Layouts, material boards and lighting studies are reviewed together.",
+        "step3Title": "Install",
+        "step3Text": "Bespoke pieces are detailed, procured and checked on site."
+      },
+      "commercial": {
+        "title": "Commercial spaces",
+        "summary": "Offices, studios and retail spaces that are flexible, legible and pleasant to work in.",
+        "description": "Workplaces change faster than buildings. We plan structure and services to allow reconfiguration while keeping daylight, acoustics and circulation right.",
+        "step1Title": "Brief",
+        "step1Text": "Teams, growth and ways of working are translated into a space programme.",
+        "step2Title": "Test-fit",
+        "step2Text": "Layout options are compared against daylight, acoustics and circulation.",
+        "step3Title": "Deliver",
+        "step3Text": "Phased drawings and coordination keep the project on programme."
+      },
+      "renovation": {
+        "title": "Renovation",
+        "summary": "Careful reuse of existing buildings, keeping what has character and fixing what does not.",
+        "description": "Old structures hold embodied energy and stories. We survey, repair and reinterpret them so new use sits comfortably inside old walls.",
+        "step1Title": "Survey",
+        "step1Text": "Measured drawings and condition surveys reveal what the building can carry.",
+        "step2Title": "Decide",
+        "step2Text": "We agree what to keep, repair or replace, and why.",
+        "step3Title": "Restore",
+        "step3Text": "Repairs and interventions are detailed to be honest about old and new."
+      },
+      "sustainable": {
+        "title": "Sustainable design",
+        "summary": "Passive strategies first: orientation, shading, thermal mass and low-carbon materials.",
+        "description": "Sustainability is decided in the earliest sketches, not added at the end. We prioritise passive performance, durable materials and buildings that are easy to repair.",
+        "step1Title": "Model",
+        "step1Text": "Early energy and daylight studies steer form and orientation.",
+        "step2Title": "Specify",
+        "step2Text": "Materials are chosen for durability, repairability and embodied carbon.",
+        "step3Title": "Verify",
+        "step3Text": "Performance is checked against targets as drawings develop."
+      },
+      "concept": {
+        "title": "Concept design",
+        "summary": "A focused early phase that turns a site and an ambition into a clear architectural idea.",
+        "description": "Not every project needs the full journey straight away. Concept design gives you a defined idea, massing studies and a realistic direction before you commit further.",
+        "step1Title": "Explore",
+        "step1Text": "Site, regulations and references are gathered into a short study.",
+        "step2Title": "Sketch",
+        "step2Text": "Several directions are drawn quickly and compared openly.",
+        "step3Title": "Decide",
+        "step3Text": "One concept is developed into a presentation you can build on."
+      }
+    }
   }
 }

@@ -59,6 +59,18 @@
   --font-sans: var(--font-latin-sans), var(--font-persian), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-latin-serif), var(--font-persian), ui-serif, Georgia, serif;
 
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   --text-display: clamp(3rem, 9vw, 8rem);
   --text-display--line-height: 0.95;
   --text-display--letter-spacing: -0.035em;

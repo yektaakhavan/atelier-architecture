@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { Button } from "@/components/ui/button";
-import { Container } from "@/components/ui/container";
+import { CtaBand } from "@/components/home/cta-band";
+import { ExpertiseList } from "@/components/home/expertise-list";
+import { FeaturedProjects } from "@/components/home/featured-projects";
+import { Hero } from "@/components/home/hero";
+import { MoreProjects } from "@/components/home/more-projects";
+import { StudioIntro } from "@/components/home/studio-intro";
+import { StudioStats } from "@/components/home/studio-stats";
 import { routing } from "@/i18n/routing";
 import { localizedAlternates } from "@/lib/seo";
 
@@ -16,35 +20,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { alternates: localizedAlternates(locale, "/") };
 }
 
-// Temporary design-system preview; replaced by the real home page in stage 5.
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const t = await getTranslations("Home");
 
   return (
-    <Container className="flex min-h-[70vh] flex-col justify-center gap-10 py-16">
-      <div className="flex items-start justify-between gap-6">
-        <SectionHeading
-          level={1}
-          eyebrow={t("previewEyebrow")}
-          title={t("previewTitle")}
-          description={t("previewDescription")}
-        />
-      </div>
-      <p className="text-display font-medium">
-        {t("taglineLead")}{" "}
-        <em className="font-serif font-normal text-accent-ink rtl:not-italic">
-          {t("taglineAccent")}
-        </em>
-      </p>
-      <div className="flex flex-wrap gap-3">
-        <Button>Primary</Button>
-        <Button variant="accent">Accent</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-      </div>
-    </Container>
+    <>
+      <Hero />
+      <FeaturedProjects />
+      <StudioIntro />
+      <StudioStats />
+      <ExpertiseList />
+      <MoreProjects />
+      <CtaBand />
+    </>
   );
 }
