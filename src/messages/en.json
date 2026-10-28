@@ -80,7 +80,32 @@
       "hospitality": "Hospitality",
       "cultural": "Cultural",
       "renovation": "Renovation"
-    }
+    },
+    "metaTitle": "Projects",
+    "metaDescription": "An archive of residential, commercial, interior, hospitality, cultural and renovation projects from a fictional architecture studio.",
+    "eyebrow": "Projects",
+    "title": "An archive of built and imagined work.",
+    "intro": "Sample projects from a fictional studio. Filter by type, year or location, search by name, and sort the list your way.",
+    "searchLabel": "Search by name",
+    "searchPlaceholder": "Search projects",
+    "filters": "Filters",
+    "filtersGroup": "Project filters",
+    "typeLabel": "Project type",
+    "allTypes": "All types",
+    "yearLabel": "Year",
+    "allYears": "All years",
+    "countryLabel": "Location",
+    "allCountries": "All locations",
+    "sortLabel": "Sort by",
+    "sort": {
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "title": "Name (A–Z)"
+    },
+    "resultCount": "{count, plural, one {# project} other {# projects}}",
+    "clearFilters": "Clear filters",
+    "emptyTitle": "No projects match your filters",
+    "emptyText": "Try a different name, or remove a filter to see more work."
   },
   "Services": {
     "metaTitle": "Services",
