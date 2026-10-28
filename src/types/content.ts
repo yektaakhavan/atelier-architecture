@@ -26,6 +26,8 @@ export type Project = {
   category: ProjectCategory;
   year: number;
   featured: boolean;
+  /** ISO 3166-1 alpha-2; shown as a localized country name and used for the location filter. */
+  country: string;
   title: Localized;
   location: Localized;
   summary: Localized;
@@ -47,4 +49,20 @@ export type Service = {
   id: ServiceId;
   image: ProjectImageData;
   relatedProjects: readonly string[];
+};
+
+/** Fictional team members are defined in the About messages (member1..member4). */
+export type TeamMemberId = 1 | 2 | 3 | 4;
+
+export type ProjectDetails = {
+  /** Square metres; omitted when unknown. */
+  area?: number;
+  services: readonly ServiceId[];
+  team: readonly TeamMemberId[];
+  concept: Localized;
+  approach: Localized;
+  materials: Localized<readonly string[]>;
+  challenge: Localized;
+  solution: Localized;
+  gallery: readonly ProjectImageData[];
 };

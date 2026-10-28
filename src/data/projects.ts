@@ -4,6 +4,7 @@ import type { Project } from "@/types/content";
 export const projects: readonly Project[] = [
   {
     slug: "casa-olivo",
+    country: "PT",
     category: "residential",
     year: 2024,
     featured: true,
@@ -17,6 +18,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "courtyard-house-isfahan",
+    country: "IR",
     category: "residential",
     year: 2023,
     featured: true,
@@ -30,6 +32,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "north-light-studios",
+    country: "DK",
     category: "commercial",
     year: 2024,
     featured: true,
@@ -43,6 +46,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "salt-pavilion",
+    country: "GE",
     category: "cultural",
     year: 2022,
     featured: true,
@@ -56,6 +60,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "oak-and-lime-apartment",
+    country: "TR",
     category: "interior",
     year: 2025,
     featured: false,
@@ -69,6 +74,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "douro-terrace-hotel",
+    country: "PT",
     category: "hospitality",
     year: 2023,
     featured: false,
@@ -82,6 +88,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "brick-mill-renewal",
+    country: "IR",
     category: "renovation",
     year: 2022,
     featured: false,
@@ -95,6 +102,7 @@ export const projects: readonly Project[] = [
   },
   {
     slug: "canopy-offices",
+    country: "IR",
     category: "commercial",
     year: 2025,
     featured: false,

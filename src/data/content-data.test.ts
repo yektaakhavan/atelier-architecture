@@ -1,6 +1,7 @@
 import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
 import { artTones, artVariants, projectCategories, serviceIds } from "@/types/content";
+import { projectDetails } from "./project-details";
 import { archiveProjects, featuredProjects, projects } from "./projects";
 import { services } from "./services";
 
@@ -58,5 +59,41 @@ describe("service data", () => {
 
   it("has copy for every service", () => {
     for (const { id } of services) expect(en.Services.items[id].title).toBeTruthy();
+  });
+});
+
+describe("project details", () => {
+  it("exist for every project and for no unknown slug", () => {
+    expect(Object.keys(projectDetails).sort()).toEqual(
+      projects.map((project) => project.slug).sort(),
+    );
+  });
+
+  it("reference valid services and team members", () => {
+    for (const [slug, details] of Object.entries(projectDetails)) {
+      expect(details.services.length, slug).toBeGreaterThan(0);
+      for (const id of details.services) expect(serviceIds, `${slug} service`).toContain(id);
+      for (const member of details.team) expect([1, 2, 3, 4], `${slug} team`).toContain(member);
+    }
+  });
+
+  it("have a gallery and complete bilingual copy", () => {
+    for (const [slug, details] of Object.entries(projectDetails)) {
+      expect(details.gallery.length, slug).toBeGreaterThanOrEqual(3);
+      for (const locale of routing.locales) {
+        for (const field of ["concept", "approach", "challenge", "solution"] as const) {
+          expect(details[field][locale].trim(), `${slug} ${field} ${locale}`).not.toBe("");
+        }
+        expect(
+          details.materials[locale].length,
+          `${slug} materials ${locale}`,
+        ).toBeGreaterThanOrEqual(3);
+      }
+      expect(details.materials.en.length).toBe(details.materials.fa.length);
+    }
+  });
+
+  it("gives every project a country code", () => {
+    for (const project of projects) expect(project.country).toMatch(/^[A-Z]{2}$/);
   });
 });
