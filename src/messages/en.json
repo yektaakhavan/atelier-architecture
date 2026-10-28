@@ -169,6 +169,7 @@
         "step3Title": "Decide",
         "step3Text": "One concept is developed into a presentation you can build on."
       }
-    }
+    },
+    "illustrationOf": "Illustration for {title}"
   }
 }
