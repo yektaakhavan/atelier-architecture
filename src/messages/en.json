@@ -1,0 +1,20 @@
+{
+  "Metadata": {
+    "title": "ATELIER — Architecture & Living",
+    "description": "A fictional contemporary architecture studio — a frontend portfolio project."
+  },
+  "Theme": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "LanguageSwitcher": {
+    "label": "Language"
+  },
+  "Home": {
+    "previewEyebrow": "Design system",
+    "previewTitle": "ATELIER — Architecture & Living",
+    "previewDescription": "Tokens, typography and base components, previewed in both themes.",
+    "taglineLead": "Quiet",
+    "taglineAccent": "spaces"
+  }
+}

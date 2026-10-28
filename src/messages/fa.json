@@ -1,0 +1,20 @@
+{
+  "Metadata": {
+    "title": "ATELIER — معماری و سکونت",
+    "description": "یک استودیوی معماری معاصر فرضی — پروژه نمونه‌کار فرانت‌اند."
+  },
+  "Theme": {
+    "switchToLight": "تغییر به تم روشن",
+    "switchToDark": "تغییر به تم تاریک"
+  },
+  "LanguageSwitcher": {
+    "label": "زبان"
+  },
+  "Home": {
+    "previewEyebrow": "سیستم طراحی",
+    "previewTitle": "ATELIER — معماری و سکونت",
+    "previewDescription": "توکن‌ها، تایپوگرافی و کامپوننت‌های پایه، در هر دو تم.",
+    "taglineLead": "فضاهای",
+    "taglineAccent": "آرام"
+  }
+}

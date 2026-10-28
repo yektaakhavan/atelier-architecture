@@ -1,15 +1,12 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "./use-theme";
 
-type ThemeToggleProps = {
-  labels: { switchToLight: string; switchToDark: string };
-  className?: string;
-};
-
-export function ThemeToggle({ labels, className }: ThemeToggleProps) {
+export function ThemeToggle({ className }: { className?: string }) {
+  const t = useTranslations("Theme");
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";
 
@@ -18,7 +15,7 @@ export function ThemeToggle({ labels, className }: ThemeToggleProps) {
       variant="ghost"
       size="icon"
       className={className}
-      aria-label={isDark ? labels.switchToLight : labels.switchToDark}
+      aria-label={isDark ? t("switchToLight") : t("switchToDark")}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       {/* Both icons are rendered and swapped with CSS, so the icon is right on first paint. */}
