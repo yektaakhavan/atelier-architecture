@@ -66,3 +66,31 @@ export type ProjectDetails = {
   solution: Localized;
   gallery: readonly ProjectImageData[];
 };
+
+export const articleCategories = [
+  "contemporary",
+  "interior",
+  "sustainable",
+  "materials",
+  "lighting",
+  "smallSpaces",
+  "caseStudy",
+] as const;
+export type ArticleCategory = (typeof articleCategories)[number];
+
+export type ArticleBlock = { type: "heading" | "paragraph"; text: string };
+
+export type Article = {
+  slug: string;
+  category: ArticleCategory;
+  /** ISO date (YYYY-MM-DD), interpreted as UTC so the day never shifts between time zones. */
+  publishedAt: string;
+  featured: boolean;
+  author: TeamMemberId;
+  /** Slug of a project the article discusses, if any. */
+  relatedProject?: string;
+  image: ProjectImageData;
+  title: Localized;
+  excerpt: Localized;
+  body: Localized<readonly ArticleBlock[]>;
+};

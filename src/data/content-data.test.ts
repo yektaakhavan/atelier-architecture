@@ -1,6 +1,13 @@
 import { routing } from "@/i18n/routing";
 import en from "@/messages/en.json";
-import { artTones, artVariants, projectCategories, serviceIds } from "@/types/content";
+import {
+  articleCategories,
+  artTones,
+  artVariants,
+  projectCategories,
+  serviceIds,
+} from "@/types/content";
+import { articles, featuredArticles } from "./articles";
 import { projectDetails } from "./project-details";
 import { archiveProjects, featuredProjects, projects } from "./projects";
 import { services } from "./services";
@@ -95,5 +102,46 @@ describe("project details", () => {
 
   it("gives every project a country code", () => {
     for (const project of projects) expect(project.country).toMatch(/^[A-Z]{2}$/);
+  });
+});
+
+describe("article data", () => {
+  it("has unique, URL-safe slugs and valid UTC dates", () => {
+    const slugList = articles.map((article) => article.slug);
+    expect(new Set(slugList).size).toBe(slugList.length);
+    for (const article of articles) {
+      expect(article.slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+      expect(article.publishedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(
+        Number.isNaN(new Date(`${article.publishedAt}T00:00:00Z`).getTime()),
+        article.slug,
+      ).toBe(false);
+    }
+  });
+
+  it("uses known categories, authors and related projects", () => {
+    const projectSlugs = new Set(projects.map((project) => project.slug));
+    for (const article of articles) {
+      expect(articleCategories).toContain(article.category);
+      expect([1, 2, 3, 4]).toContain(article.author);
+      if (article.relatedProject)
+        expect(projectSlugs.has(article.relatedProject), article.slug).toBe(true);
+    }
+  });
+
+  it("has the same block structure in every language", () => {
+    for (const article of articles) {
+      const structure = (locale: "en" | "fa") => article.body[locale].map((block) => block.type);
+      expect(structure("fa"), article.slug).toEqual(structure("en"));
+      for (const locale of routing.locales) {
+        expect(article.title[locale].trim(), `${article.slug} title`).not.toBe("");
+        expect(article.excerpt[locale].trim(), `${article.slug} excerpt`).not.toBe("");
+        for (const block of article.body[locale]) expect(block.text.trim()).not.toBe("");
+      }
+    }
+  });
+
+  it("highlights at least two featured articles", () => {
+    expect(featuredArticles.length).toBeGreaterThanOrEqual(2);
   });
 });
