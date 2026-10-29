@@ -42,7 +42,10 @@
     "moreTitle": "Also in the archive",
     "ctaTitle": "Have a site in mind?",
     "ctaText": "Tell us about the plot, the brief or just the feeling you are after. The form on the contact page is a demo, but it shows how the conversation would start.",
-    "ctaButton": "Start a project"
+    "ctaButton": "Start a project",
+    "journalEyebrow": "Journal",
+    "journalTitle": "From the journal",
+    "journalViewAll": "All articles"
   },
   "Nav": {
     "primary": "Primary",
@@ -330,5 +333,38 @@
     "previous": "Previous image",
     "next": "Next image",
     "counter": "{current, number} / {total, number}"
+  },
+  "Journal": {
+    "metaTitle": "Journal",
+    "metaDescription": "Short essays and case studies on architecture, interiors, materials and light, written for a fictional studio's portfolio.",
+    "eyebrow": "Journal",
+    "title": "Notes on light, material and making.",
+    "intro": "Short essays and case studies on architecture, interiors and materials. The articles are fictional and were written for this portfolio.",
+    "featuredTitle": "Featured",
+    "allTitle": "All articles",
+    "searchLabel": "Search articles",
+    "searchPlaceholder": "Title or topic",
+    "categoryLabel": "Category",
+    "allCategories": "All",
+    "categories": {
+      "contemporary": "Contemporary architecture",
+      "interior": "Interior design",
+      "sustainable": "Sustainable design",
+      "materials": "Materials",
+      "lighting": "Lighting",
+      "smallSpaces": "Small spaces",
+      "caseStudy": "Case study"
+    },
+    "resultCount": "{count, plural, one {# article} other {# articles}}",
+    "clearFilters": "Clear filters",
+    "emptyTitle": "No articles found",
+    "emptyText": "Try a different word, or choose another category.",
+    "readingTime": "{minutes, plural, one {# min read} other {# min read}}",
+    "coverAlt": "Cover illustration for {title}",
+    "byAuthor": "By {name}",
+    "fictionalNote": "This is a fictional article written for a portfolio demo.",
+    "relatedProject": "About the project",
+    "relatedArticles": "Related articles",
+    "backToJournal": "Back to the journal"
   }
 }

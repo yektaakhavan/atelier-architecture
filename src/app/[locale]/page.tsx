@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ExpertiseList } from "@/components/home/expertise-list";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { Hero } from "@/components/home/hero";
+import { JournalPreview } from "@/components/home/journal-preview";
 import { MoreProjects } from "@/components/home/more-projects";
 import { StudioIntro } from "@/components/home/studio-intro";
 import { StudioStats } from "@/components/home/studio-stats";
@@ -34,6 +35,7 @@ export default async function HomePage({ params }: PageProps) {
       <StudioStats />
       <ExpertiseList />
       <MoreProjects />
+      <JournalPreview />
       <CtaBand id="home-cta" title={t("ctaTitle")} text={t("ctaText")} button={t("ctaButton")} />
     </>
   );

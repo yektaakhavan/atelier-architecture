@@ -42,7 +42,10 @@
     "moreTitle": "در آرشیو نیز",
     "ctaTitle": "زمینی در ذهن دارید؟",
     "ctaText": "از زمین، برنامه یا فقط حسی که به دنبالش هستید بگویید. فرم صفحه تماس یک دمو است، اما نشان می‌دهد گفتگو چگونه آغاز می‌شود.",
-    "ctaButton": "شروع پروژه"
+    "ctaButton": "شروع پروژه",
+    "journalEyebrow": "مجله",
+    "journalTitle": "از مجله",
+    "journalViewAll": "همه مقاله‌ها"
   },
   "Nav": {
     "primary": "اصلی",
@@ -330,5 +333,38 @@
     "previous": "تصویر قبلی",
     "next": "تصویر بعدی",
     "counter": "{current, number} / {total, number}"
+  },
+  "Journal": {
+    "metaTitle": "مجله",
+    "metaDescription": "جستارها و مطالعات موردی کوتاه درباره معماری، فضای داخلی، مصالح و نور، نوشته‌شده برای نمونه‌کار یک استودیوی فرضی.",
+    "eyebrow": "مجله",
+    "title": "یادداشت‌هایی درباره نور، مصالح و ساختن.",
+    "intro": "جستارها و مطالعات موردی کوتاه درباره معماری، فضای داخلی و مصالح. مقاله‌ها فرضی‌اند و برای این نمونه‌کار نوشته شده‌اند.",
+    "featuredTitle": "منتخب",
+    "allTitle": "همه مقاله‌ها",
+    "searchLabel": "جست‌وجوی مقاله",
+    "searchPlaceholder": "عنوان یا موضوع",
+    "categoryLabel": "دسته‌بندی",
+    "allCategories": "همه",
+    "categories": {
+      "contemporary": "معماری معاصر",
+      "interior": "طراحی داخلی",
+      "sustainable": "طراحی پایدار",
+      "materials": "مصالح ساختمانی",
+      "lighting": "نورپردازی",
+      "smallSpaces": "فضاهای کوچک",
+      "caseStudy": "مطالعه موردی"
+    },
+    "resultCount": "{count, plural, other {# مقاله}}",
+    "clearFilters": "پاک کردن فیلترها",
+    "emptyTitle": "مقاله‌ای پیدا نشد",
+    "emptyText": "کلمه‌ی دیگری را امتحان کنید یا دسته‌بندی دیگری برگزینید.",
+    "readingTime": "{minutes, plural, other {# دقیقه مطالعه}}",
+    "coverAlt": "تصویر جلد برای {title}",
+    "byAuthor": "نوشته‌ی {name}",
+    "fictionalNote": "این یک مقاله‌ی فرضی است که برای دموی نمونه‌کار نوشته شده.",
+    "relatedProject": "درباره‌ی این پروژه",
+    "relatedArticles": "مطالب مرتبط",
+    "backToJournal": "بازگشت به مجله"
   }
 }
