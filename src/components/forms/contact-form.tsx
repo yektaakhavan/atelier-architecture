@@ -232,7 +232,7 @@ function SuccessMessage({
       ref={ref}
       tabIndex={-1}
       role="status"
-      className="flex flex-col items-start gap-5 border border-line bg-surface p-8 outline-none"
+      className="animate-rise flex flex-col items-start gap-5 border border-line bg-surface p-8 outline-none"
     >
       <CheckCircle2 aria-hidden className="size-8 text-olive-ink" />
       <h2 className="text-2xl font-medium">{title}</h2>

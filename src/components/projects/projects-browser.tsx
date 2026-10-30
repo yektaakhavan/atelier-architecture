@@ -94,7 +94,7 @@ export function ProjectsBrowser() {
           id={panelId}
           className={cn(
             "gap-6 md:grid md:grid-cols-12 md:items-end",
-            panelOpen ? "grid" : "hidden",
+            panelOpen ? "animate-fade-in grid" : "hidden",
           )}
         >
           <div
