@@ -48,98 +48,103 @@ const palettes: Record<ArtTone, Palette> = {
 
 const range = (count: number) => Array.from({ length: count }, (_, i) => i);
 
+/*
+ * Every scene keeps its subject inside x 175-625 and y 75-525 of the 800x600 canvas. The SVG is
+ * cropped with "slice" to fit portrait, square and 16:9 frames, and that central region is what
+ * survives all of them.
+ */
 function Scene({ variant, c }: { variant: ArtVariant; c: Palette }) {
   switch (variant) {
     case "volumes":
       return (
         <>
-          <circle cx="650" cy="120" r="42" fill={c.accent} />
-          <rect x="120" y="260" width="320" height="220" fill={c.mass1} />
-          <rect x="240" y="150" width="270" height="120" fill={c.mass2} />
-          <rect x="530" y="210" width="110" height="270" fill={c.mass3} />
-          <rect x="160" y="340" width="100" height="14" fill={c.sky} />
-          <rect x="300" y="190" width="140" height="14" fill={c.sky} />
+          <circle cx="545" cy="130" r="38" fill={c.accent} />
+          <rect x="175" y="270" width="290" height="210" fill={c.mass1} />
+          <rect x="250" y="160" width="250" height="120" fill={c.mass2} />
+          <rect x="520" y="220" width="100" height="260" fill={c.mass3} />
+          <rect x="205" y="345" width="90" height="14" fill={c.sky} />
+          <rect x="300" y="200" width="130" height="14" fill={c.sky} />
         </>
       );
     case "facade":
       return (
         <>
-          <rect x="130" y="90" width="540" height="390" fill={c.mass1} />
+          <rect x="175" y="90" width="450" height="390" fill={c.mass1} />
           {range(5).flatMap((col) =>
             range(4).map((row) => (
               <rect
                 key={`${col}-${row}`}
-                x={170 + col * 100}
+                x={197 + col * 84}
                 y={125 + row * 85}
-                width="60"
+                width="52"
                 height="55"
                 fill={(col + row) % 4 === 0 ? c.accent : c.sky}
               />
             )),
           )}
-          <rect x="130" y="440" width="540" height="40" fill={c.mass2} />
+          <rect x="175" y="440" width="450" height="40" fill={c.mass2} />
         </>
       );
     case "section":
       return (
         <>
-          <rect x="150" y="110" width="500" height="370" fill={c.mass3} />
-          <rect x="150" y="110" width="500" height="14" fill={c.mass2} />
-          <rect x="150" y="230" width="360" height="12" fill={c.mass2} />
-          <rect x="150" y="350" width="500" height="12" fill={c.mass2} />
-          <rect x="500" y="124" width="14" height="356" fill={c.mass2} />
-          <polygon points="514,350 650,350 650,480 560,480" fill={c.mass1} />
+          <rect x="175" y="110" width="450" height="370" fill={c.mass3} />
+          <rect x="175" y="110" width="450" height="14" fill={c.mass2} />
+          <rect x="175" y="230" width="320" height="12" fill={c.mass2} />
+          <rect x="175" y="350" width="450" height="12" fill={c.mass2} />
+          <rect x="481" y="124" width="14" height="356" fill={c.mass2} />
+          <polygon points="495,350 625,350 625,480 555,480" fill={c.mass1} />
           <rect x="250" y="262" width="70" height="88" fill={c.accent} />
         </>
       );
     case "arches":
       return (
         <>
-          <rect x="90" y="120" width="620" height="360" fill={c.mass3} />
-          {range(4).map((i) => (
+          <rect x="175" y="130" width="450" height="350" fill={c.mass3} />
+          {range(3).map((i) => (
             <path
               key={i}
-              d={`M${130 + i * 150},480 V330 A50,50 0 0 1 ${230 + i * 150},330 V480 Z`}
+              d={`M${200 + i * 135},480 V340 A50,50 0 0 1 ${300 + i * 135},340 V480 Z`}
               fill={i % 2 === 0 ? c.mass1 : c.mass2}
             />
           ))}
-          <rect x="90" y="120" width="620" height="22" fill={c.mass2} />
-          <circle cx="400" cy="90" r="26" fill={c.accent} />
+          <rect x="175" y="130" width="450" height="22" fill={c.mass2} />
+          <circle cx="400" cy="95" r="22" fill={c.accent} />
         </>
       );
     case "stairs":
       return (
         <>
-          {range(6).map((i) => (
+          {range(5).map((i) => (
             <rect
               key={i}
-              x={90 + i * 100}
+              x={175 + i * 80}
               y={440 - i * 62}
-              width="140"
+              width="130"
               height={160 + i * 62}
               fill={i % 2 === 0 ? c.mass1 : c.mass2}
             />
           ))}
-          <rect x="520" y="100" width="170" height="14" fill={c.accent} />
+          <rect x="450" y="100" width="170" height="14" fill={c.accent} />
         </>
       );
     case "plan":
       return (
         <>
           <rect
-            x="130"
+            x="175"
             y="100"
-            width="540"
+            width="450"
             height="400"
             fill={c.mass3}
             stroke={c.ink}
             strokeWidth="10"
           />
-          <line x1="400" y1="100" x2="400" y2="330" stroke={c.ink} strokeWidth="8" />
-          <line x1="130" y1="330" x2="540" y2="330" stroke={c.ink} strokeWidth="8" />
-          <circle cx="270" cy="215" r="48" fill={c.mass1} />
-          <rect x="470" y="170" width="140" height="80" fill={c.accent} />
-          <rect x="560" y="330" width="110" height="170" fill={c.mass1} opacity="0.6" />
+          <line x1="420" y1="100" x2="420" y2="330" stroke={c.ink} strokeWidth="8" />
+          <line x1="175" y1="330" x2="500" y2="330" stroke={c.ink} strokeWidth="8" />
+          <circle cx="295" cy="215" r="48" fill={c.mass1} />
+          <rect x="470" y="170" width="130" height="80" fill={c.accent} />
+          <rect x="520" y="330" width="105" height="170" fill={c.mass1} opacity="0.6" />
         </>
       );
   }

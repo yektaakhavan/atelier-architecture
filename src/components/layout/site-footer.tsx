@@ -44,7 +44,7 @@ export async function SiteFooter() {
               <a href={`mailto:${contactInfo.email}`} className="hover:text-foreground">
                 {contactInfo.email}
               </a>
-              <span dir="ltr" className="text-start">
+              <span dir="ltr" className="self-start">
                 {contactInfo.phone}
               </span>
             </address>

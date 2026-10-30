@@ -24,7 +24,7 @@ export function ProjectCard({ project, ratio = "landscape", sizes, className }: 
   const title = project.title[locale];
 
   return (
-    <article className={cn("group", className)}>
+    <article className={cn("group min-w-0", className)}>
       <Link href={`/projects/${project.slug}`} className="block hover:no-underline">
         <div className={cn("relative overflow-hidden bg-surface", ratios[ratio])}>
           <ProjectImage
@@ -34,14 +34,14 @@ export function ProjectCard({ project, ratio = "landscape", sizes, className }: 
             className="transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
           />
         </div>
-        <div className="mt-4 flex items-start justify-between gap-4">
+        <div className="mt-4 flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
           <div>
             <h3 className="text-xl font-medium group-hover:underline underline-offset-4">
               {title}
             </h3>
             <p className="text-sm text-muted">{project.location[locale]}</p>
           </div>
-          <p className="shrink-0 text-sm text-muted">
+          <p className="text-sm text-muted">
             {t(`categories.${project.category}`)} ·{" "}
             {format.number(project.year, { useGrouping: false })}
           </p>
