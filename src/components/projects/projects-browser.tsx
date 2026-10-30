@@ -193,7 +193,7 @@ export function ProjectsBrowser() {
       </div>
 
       {visible.length > 0 ? (
-        <ProjectGrid projects={visible} />
+        <ProjectGrid projects={visible} headingLevel={2} />
       ) : (
         <div className="flex flex-col items-center gap-4 border border-dashed border-line px-6 py-20 text-center">
           <h2 className="text-2xl font-medium">{t("emptyTitle")}</h2>

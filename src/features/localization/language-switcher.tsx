@@ -30,7 +30,9 @@ function LanguageLinks({ search }: { search: string }) {
   const href = search ? `${pathname}?${search}` : pathname;
 
   return (
-    <nav aria-label={t("label")}>
+    // A labelled group, not a <nav>: it appears in the header and the footer, and two landmarks
+    // with the same name are indistinguishable for screen-reader users.
+    <div role="group" aria-label={t("label")}>
       <ul className="flex items-center gap-1">
         {routing.locales.map((locale) => {
           const isCurrent = locale === currentLocale;
@@ -60,6 +62,6 @@ function LanguageLinks({ search }: { search: string }) {
           );
         })}
       </ul>
-    </nav>
+    </div>
   );
 }

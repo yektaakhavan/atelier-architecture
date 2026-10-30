@@ -7,7 +7,7 @@ export default async function NotFound() {
 
   return (
     <Container className="flex min-h-[60vh] flex-col justify-center gap-8 py-24">
-      <p aria-hidden className="text-display font-medium text-line" lang="en">
+      <p aria-hidden className="text-display font-medium text-olive" lang="en">
         404
       </p>
       <div className="flex max-w-xl flex-col gap-4">

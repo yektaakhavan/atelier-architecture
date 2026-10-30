@@ -21,7 +21,7 @@ vi.mock("@/i18n/navigation", () => ({
 
 const copy = en.Projects;
 const titles = () =>
-  screen.getAllByRole("heading", { level: 3 }).map((heading) => heading.textContent);
+  screen.getAllByRole("heading", { level: 2 }).map((heading) => heading.textContent);
 const count = () => screen.getByRole("status").textContent;
 
 describe("ProjectsBrowser", () => {

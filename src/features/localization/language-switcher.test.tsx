@@ -48,7 +48,7 @@ describe("LanguageSwitcher", () => {
   it("flips the current language and the group label for Persian", () => {
     renderWithIntl(<LanguageSwitcher />, { locale: "fa" });
 
-    expect(screen.getByRole("navigation", { name: fa.LanguageSwitcher.label })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: fa.LanguageSwitcher.label })).toBeInTheDocument();
     expect(screen.getByText("فارسی")).toHaveAttribute("aria-current", "true");
     expect(screen.getByRole("link", { name: "English" })).toHaveAttribute("href", "/en/projects");
   });

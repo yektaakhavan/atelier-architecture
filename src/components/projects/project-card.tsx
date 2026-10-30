@@ -15,13 +15,22 @@ type ProjectCardProps = {
   ratio?: keyof typeof ratios;
   sizes?: string;
   className?: string;
+  /** Follow the surrounding outline: h2 when the card list sits directly under the page's h1. */
+  headingLevel?: 2 | 3;
 };
 
-export function ProjectCard({ project, ratio = "landscape", sizes, className }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  ratio = "landscape",
+  sizes,
+  className,
+  headingLevel = 3,
+}: ProjectCardProps) {
   const t = useTranslations("Projects");
   const format = useFormatter();
   const locale = useLocale();
   const title = project.title[locale];
+  const Heading = `h${headingLevel}` as const;
 
   return (
     <article className={cn("group min-w-0", className)}>
@@ -36,9 +45,9 @@ export function ProjectCard({ project, ratio = "landscape", sizes, className }: 
         </div>
         <div className="mt-4 flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
           <div>
-            <h3 className="text-xl font-medium group-hover:underline underline-offset-4">
+            <Heading className="text-xl font-medium group-hover:underline underline-offset-4">
               {title}
-            </h3>
+            </Heading>
             <p className="text-sm text-muted">{project.location[locale]}</p>
           </div>
           <p className="text-sm text-muted">

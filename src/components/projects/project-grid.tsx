@@ -10,7 +10,13 @@ const pattern = [
   { span: "md:col-span-4", ratio: "portrait", sizes: "(min-width: 768px) 32vw, 100vw" },
 ] as const;
 
-export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
+export function ProjectGrid({
+  projects,
+  headingLevel,
+}: {
+  projects: readonly Project[];
+  headingLevel?: 2 | 3;
+}) {
   return (
     <div className="grid items-start gap-x-8 gap-y-16 md:grid-cols-12">
       {projects.map((project, index) => {
@@ -22,6 +28,7 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
             ratio={slot.ratio}
             sizes={slot.sizes}
             className={slot.span}
+            headingLevel={headingLevel}
           />
         );
       })}
