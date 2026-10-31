@@ -47,13 +47,16 @@ test.describe("theme", () => {
     ).toBeVisible();
   });
 
-  test("the gallery art keeps the same look in both themes", async ({ page }) => {
+  test("the artwork loads and is identical in both themes", async ({ page }) => {
     await page.goto("/en");
     const art = page.getByRole("img", { name: /Illustration of Casa Olivo/ }).first();
-    const light = await art.evaluate((el) => getComputedStyle(el.querySelector("rect")!).fill);
+    await art.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => art.evaluate((el: HTMLImageElement) => el.naturalWidth))
+      .toBeGreaterThan(0);
+    const light = await art.getAttribute("src");
 
     await page.getByRole("banner").getByRole("button", { name: "Switch to dark theme" }).click();
-    const dark = await art.evaluate((el) => getComputedStyle(el.querySelector("rect")!).fill);
-    expect(dark).toBe(light);
+    expect(await art.getAttribute("src")).toBe(light);
   });
 });

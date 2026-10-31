@@ -43,7 +43,11 @@ export default async function ProjectsPage({ params }: PageProps) {
       {/* The fallback is the full archive, so the static HTML is useful before (or without) JavaScript. */}
       <Suspense
         fallback={
-          <ProjectGrid projects={sortProjects(projects, "newest", locale)} headingLevel={2} />
+          <ProjectGrid
+            projects={sortProjects(projects, "newest", locale)}
+            headingLevel={2}
+            priorityCount={2}
+          />
         }
       >
         <ProjectsBrowser />

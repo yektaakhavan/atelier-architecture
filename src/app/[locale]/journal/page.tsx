@@ -50,11 +50,12 @@ export default async function JournalPage({ params }: PageProps) {
           {t("featuredTitle")}
         </h2>
         <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
-          {featuredArticles.map((article) => (
+          {featuredArticles.map((article, index) => (
             <ArticleCard
               key={article.slug}
               article={article}
               sizes="(min-width: 768px) 48vw, 100vw"
+              priority={index === 0}
             />
           ))}
         </div>

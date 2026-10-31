@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { ArchitecturalArt } from "@/components/shared/architectural-art";
+import { ArtImage } from "@/components/shared/art-image";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/link";
 
@@ -39,9 +39,10 @@ export function Hero() {
 
         <figure className="animate-rise md:col-span-5 [animation-delay:180ms]">
           <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-            <ArchitecturalArt
+            <ArtImage
               variant="volumes"
               tone="olive"
+              priority
               className="absolute inset-0 h-full w-full"
             />
           </div>

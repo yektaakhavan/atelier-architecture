@@ -17,6 +17,8 @@ type ProjectCardProps = {
   className?: string;
   /** Follow the surrounding outline: h2 when the card list sits directly under the page's h1. */
   headingLevel?: 2 | 3;
+  /** Above-the-fold cards load their image eagerly. */
+  priority?: boolean;
 };
 
 export function ProjectCard({
@@ -25,6 +27,7 @@ export function ProjectCard({
   sizes,
   className,
   headingLevel = 3,
+  priority,
 }: ProjectCardProps) {
   const t = useTranslations("Projects");
   const format = useFormatter();
@@ -40,6 +43,7 @@ export function ProjectCard({
             image={project.image}
             alt={t("illustrationOf", { title })}
             sizes={sizes}
+            priority={priority}
             className="transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
           />
         </div>

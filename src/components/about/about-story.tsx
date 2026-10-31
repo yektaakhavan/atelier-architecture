@@ -1,5 +1,5 @@
 import { useFormatter, useTranslations } from "next-intl";
-import { ArchitecturalArt } from "@/components/shared/architectural-art";
+import { ArtImage } from "@/components/shared/art-image";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 
@@ -20,10 +20,10 @@ export function AboutStory() {
         </div>
         <figure className="md:col-span-6">
           <div className="relative aspect-[4/3] overflow-hidden bg-surface">
-            <ArchitecturalArt
+            <ArtImage
               variant="section"
               tone="stone"
-              label={t("storyArt")}
+              alt={t("storyArt")}
               className="absolute inset-0 h-full w-full"
             />
           </div>

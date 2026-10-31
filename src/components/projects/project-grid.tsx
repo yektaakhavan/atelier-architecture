@@ -13,9 +13,12 @@ const pattern = [
 export function ProjectGrid({
   projects,
   headingLevel,
+  priorityCount = 0,
 }: {
   projects: readonly Project[];
   headingLevel?: 2 | 3;
+  /** How many leading cards are above the fold and should load eagerly. */
+  priorityCount?: number;
 }) {
   return (
     <div className="grid items-start gap-x-8 gap-y-16 md:grid-cols-12">
@@ -29,6 +32,7 @@ export function ProjectGrid({
             sizes={slot.sizes}
             className={slot.span}
             headingLevel={headingLevel}
+            priority={index < priorityCount}
           />
         );
       })}

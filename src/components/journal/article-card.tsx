@@ -16,9 +16,17 @@ type ArticleCardProps = {
   ratio?: keyof typeof ratios;
   sizes?: string;
   className?: string;
+  /** Above-the-fold cards load their image eagerly. */
+  priority?: boolean;
 };
 
-export function ArticleCard({ article, ratio = "landscape", sizes, className }: ArticleCardProps) {
+export function ArticleCard({
+  article,
+  ratio = "landscape",
+  sizes,
+  className,
+  priority,
+}: ArticleCardProps) {
   const t = useTranslations("Journal");
   const locale = useLocale();
   const title = article.title[locale];
@@ -31,6 +39,7 @@ export function ArticleCard({ article, ratio = "landscape", sizes, className }: 
             image={article.image}
             alt={t("coverAlt", { title })}
             sizes={sizes}
+            priority={priority}
             className="transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
           />
         </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArchitecturalArt } from "@/components/shared/architectural-art";
+import { ArtImage } from "@/components/shared/art-image";
 import { cn } from "@/lib/cn";
 import type { ProjectImageData } from "@/types/content";
 
@@ -33,10 +33,11 @@ export function ProjectImage({
   }
 
   return (
-    <ArchitecturalArt
+    <ArtImage
       variant={image.art}
       tone={image.tone}
-      label={alt}
+      alt={alt}
+      priority={priority}
       className={cn("absolute inset-0 h-full w-full", className)}
     />
   );
