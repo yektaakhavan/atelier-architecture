@@ -8,6 +8,7 @@ import { ArticleCard } from "@/components/journal/article-card";
 import { ArticleMeta } from "@/components/journal/article-meta";
 import { ProjectCard } from "@/components/projects/project-card";
 import { ProjectImage } from "@/components/projects/project-image";
+import { JsonLd } from "@/components/shared/json-ld";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/link";
@@ -16,6 +17,7 @@ import { projects } from "@/data/projects";
 import { getRelatedArticles } from "@/features/journal/lib/filters";
 import { routing } from "@/i18n/routing";
 import { localizedAlternates } from "@/lib/seo";
+import { article as articleJsonLd, breadcrumbList } from "@/lib/structured-data";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -61,6 +63,23 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbList([
+            { name: nav("home"), path: `/${locale}` },
+            { name: nav("journal"), path: `/${locale}/journal` },
+            { name: title, path: `/${locale}/journal/${slug}` },
+          ]),
+          articleJsonLd({
+            headline: title,
+            description: article.excerpt[locale],
+            datePublished: article.publishedAt,
+            author: about(`member${article.author}Name`),
+            locale,
+            path: `/${locale}/journal/${slug}`,
+          }),
+        ]}
+      />
       <Container className="py-8">
         <Breadcrumb
           label={nav("breadcrumb")}

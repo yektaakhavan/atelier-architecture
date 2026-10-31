@@ -3,6 +3,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ProjectHeader, ProjectRelated, ProjectStory } from "@/components/projects/project-detail";
+import { JsonLd } from "@/components/shared/json-ld";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Container } from "@/components/ui/container";
 import { getProjectDetails, projectDetails } from "@/data/project-details";
@@ -10,6 +11,7 @@ import { projects } from "@/data/projects";
 import { getRelatedProjects } from "@/features/projects/lib/related";
 import { routing } from "@/i18n/routing";
 import { localizedAlternates } from "@/lib/seo";
+import { breadcrumbList } from "@/lib/structured-data";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -46,6 +48,13 @@ export default async function ProjectPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbList([
+          { name: nav("home"), path: `/${locale}` },
+          { name: nav("projects"), path: `/${locale}/projects` },
+          { name: project.title[locale], path: `/${locale}/projects/${slug}` },
+        ])}
+      />
       <Container className="py-8">
         <Breadcrumb
           label={nav("breadcrumb")}

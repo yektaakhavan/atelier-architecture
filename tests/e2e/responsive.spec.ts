@@ -10,6 +10,8 @@ const paths = [
   "/contact",
   "/journal",
   "/journal/reuse-before-rebuild",
+  "/privacy",
+  "/terms",
 ];
 const widths = [320, 375, 768, 1024, 1440];
 

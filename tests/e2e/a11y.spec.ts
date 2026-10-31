@@ -12,6 +12,8 @@ const paths = [
   "/contact",
   "/journal",
   "/journal/reuse-before-rebuild",
+  "/privacy",
+  "/terms",
 ];
 
 // WCAG 2.2 AA is the target of the brief; axe covers the automatically checkable part of it.
