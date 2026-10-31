@@ -67,7 +67,10 @@
     "contact": "Contact",
     "address": "12 Sample Street, Example City",
     "social": "Social (sample)",
-    "rights": "© {year} ATELIER. Portfolio demo, not a real company."
+    "rights": "© {year} ATELIER. Portfolio demo, not a real company.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "legal": "Legal"
   },
   "NotFound": {
     "title": "This page does not exist",
@@ -366,5 +369,40 @@
     "relatedProject": "About the project",
     "relatedArticles": "Related articles",
     "backToJournal": "Back to the journal"
+  },
+  "Legal": {
+    "eyebrow": "Legal",
+    "privacy": {
+      "metaTitle": "Privacy",
+      "metaDescription": "What the ATELIER portfolio demo does, and does not do, with your data.",
+      "title": "Privacy",
+      "intro": "ATELIER is a fictional studio and this website is a portfolio demonstration. This page explains in plain language what the demo does and does not do with data.",
+      "s1Title": "No data is collected",
+      "s1Text": "The site has no analytics, advertising, tracking pixels or user accounts. It does not send a record of your visit anywhere.",
+      "s2Title": "The contact form",
+      "s2Text": "The form is a demonstration. What you type stays in your browser and is not sent, stored or read by anyone. A real studio would explain here where messages go and how long they are kept.",
+      "s3Title": "What is stored in your browser",
+      "s3Text": "Only your theme choice (light or dark) is saved, in your browser's local storage under the name atelier-theme. It never leaves your device, and the site sets no cookies.",
+      "s4Title": "Third parties",
+      "s4Text": "Fonts, images and scripts are all served from this site. No external services are contacted while you browse.",
+      "s5Title": "Questions",
+      "s5Text": "Questions about this demo can go to the sample address in the footer. It uses a reserved example domain, so it does not receive mail."
+    },
+    "terms": {
+      "metaTitle": "Terms of use",
+      "metaDescription": "The terms for using the ATELIER portfolio demo.",
+      "title": "Terms of use",
+      "intro": "Please read these short terms before using or sharing this website.",
+      "s1Title": "A demonstration, not a business",
+      "s1Text": "ATELIER, its projects, people, articles, figures and contact details are fictional and were created for a frontend portfolio. Nothing on this site is an offer of services.",
+      "s2Title": "Content",
+      "s2Text": "The illustrations are generated placeholders; no photography or third-party artwork is used. Any resemblance of names to real people or companies is coincidental.",
+      "s3Title": "Using the site",
+      "s3Text": "You may browse and share the pages. The code and content structure are shown for evaluation; please do not present the fictional studio as a real company.",
+      "s4Title": "No warranty",
+      "s4Text": "The site is provided as it is, as a demonstration, without any guarantee of availability or accuracy.",
+      "s5Title": "Changes",
+      "s5Text": "The demo may change at any time as the portfolio evolves."
+    }
   }
 }

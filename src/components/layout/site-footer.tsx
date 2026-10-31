@@ -61,6 +61,20 @@ export async function SiteFooter() {
       <div className="border-t border-line">
         <Container className="flex flex-wrap items-center justify-between gap-4 py-5 text-sm text-muted">
           <p>{t("rights", { year })}</p>
+          <nav aria-label={t("legal")}>
+            <ul className="flex gap-6">
+              <li>
+                <Link href="/privacy" className="hover:text-foreground">
+                  {t("privacy")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-foreground">
+                  {t("terms")}
+                </Link>
+              </li>
+            </ul>
+          </nav>
           <LanguageSwitcher />
         </Container>
       </div>
