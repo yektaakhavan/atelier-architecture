@@ -4,9 +4,9 @@ import { gzipSync } from "node:zlib";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
-const DEFAULT_BUDGET_KB = Number(process.env.JS_BUDGET_KB ?? 220);
+const DEFAULT_BUDGET_KB = Number(process.env.JS_BUDGET_KB ?? 185);
 // Pages that legitimately need more. The contact page ships React Hook Form and Zod.
-const budgetOverrides = [[/\/contact$/, 260]];
+const budgetOverrides = [[/\/contact$/, 225]];
 const budgetFor = (route) =>
   budgetOverrides.find(([pattern]) => pattern.test(route))?.[1] ?? DEFAULT_BUDGET_KB;
 const appDir = ".next/server/app";
@@ -37,8 +37,11 @@ const rows = [];
 for (const file of htmlFiles(appDir)) {
   const route = "/" + relative(appDir, file).replace(/\.html$/, "");
   if (!/^\/(en|fa)(\/|$)/.test(route)) continue;
+  // `nomodule` scripts are the legacy-browser polyfills; browsers that support modules never download them.
   const scripts = new Set(
-    [...readFileSync(file, "utf8").matchAll(/<script[^>]*\ssrc="([^"]+)"/g)].map((m) => m[1]),
+    [...readFileSync(file, "utf8").matchAll(/<script([^>]*)\ssrc="([^"]+)"([^>]*)>/g)]
+      .filter((match) => !/\bnomodule\b/i.test(match[1] + match[3]))
+      .map((match) => match[2]),
   );
   rows.push({
     route,
