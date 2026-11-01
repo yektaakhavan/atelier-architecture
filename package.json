@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
-    "check:bundle": "node scripts/check-bundle-size.mjs"
+    "check:bundle": "node scripts/check-bundle-size.mjs",
+    "docs:screenshots": "node scripts/take-screenshots.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^6.0.1",
@@ -46,5 +47,8 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
