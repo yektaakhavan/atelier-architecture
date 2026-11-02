@@ -140,3 +140,36 @@ test("the skip link jumps past the navigation", async ({ page }) => {
   await page.keyboard.press("Enter");
   await expect(page.locator("#main-content")).toBeFocused();
 });
+
+test("the journal archive searches and filters in the browser", async ({ page }) => {
+  await page.goto("/en/journal");
+  const count = page.getByRole("status");
+  await expect(count).toHaveText("6 articles");
+
+  await page.getByRole("button", { name: "Lighting" }).click();
+  await expect(count).toHaveText("1 article");
+  await expect(page).toHaveURL(/\?category=lighting$/);
+  await expect(page.getByRole("button", { name: "Lighting" })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+
+  await page.getByRole("button", { name: "Clear filters" }).click();
+  await page.getByLabel("Search articles").fill("courtyard");
+  await expect(count).toHaveText("1 article");
+  await expect(
+    page.locator("main").getByRole("heading", { level: 3, name: "The courtyard, reconsidered" }),
+  ).toBeVisible();
+
+  await page.getByLabel("Search articles").fill("no such article");
+  await expect(page.getByRole("heading", { name: "No articles found" })).toBeVisible();
+});
+
+test("the Persian journal archive is fully translated", async ({ page }) => {
+  await page.goto("/fa/journal");
+
+  await expect(page.getByRole("status")).toHaveText("۶ مقاله");
+  await expect(page.getByLabel("جست‌وجوی مقاله")).toBeVisible();
+  await page.getByRole("button", { name: "نورپردازی" }).click();
+  await expect(page.getByRole("status")).toHaveText("۱ مقاله");
+});

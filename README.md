@@ -107,8 +107,9 @@ npm run test:e2e               # 170+ browser tests, a few minutes
 
 The browser suite covers the full visitor journey in English and Persian, filters and URL state, the
 lightbox and contact form with the keyboard only, theme behaviour (including "no flash with every script
-blocked"), real 404 pages, a no-horizontal-scroll check across 8+ pages, 2 languages and 5 widths,
-reduced-motion behaviour, a link crawler, and axe accessibility audits for every page in both languages and
+blocked"), real 404 pages (including their theme), a check that every page loads with a completely quiet
+console and no leaked translation keys, a no-horizontal-scroll check across 10 pages, 2 languages and 5
+widths, reduced-motion behaviour, a link crawler, and axe accessibility audits for every page in both languages and
 both themes plus the open menu, lightbox, form errors and filter panel.
 
 If you cannot download Playwright's browsers (for example in a restricted network), point it at an existing
@@ -166,7 +167,8 @@ languages have the same block structure. Reading time and the formatted date are
 Edit **both** `src/messages/en.json` and `src/messages/fa.json`. Keys are type-checked (a typo is a compile
 error) and a test fails if the two files differ in keys or ICU placeholders. A client component can only use
 a namespace listed in `CLIENT_NAMESPACES` in `src/app/[locale]/layout.tsx`, which keeps the JavaScript sent
-to the browser small.
+to the browser small. A test fails if client code uses a namespace that is not listed (the list now lives in
+`src/i18n/client-namespaces.ts`).
 
 ### Add a language
 

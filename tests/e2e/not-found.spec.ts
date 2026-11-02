@@ -33,4 +33,23 @@ test.describe("404 pages", () => {
     await page.goto("/");
     await expect(page).toHaveURL(/\/en$/);
   });
+
+  test("a 404 page follows the saved theme, even though Next.js renders it in the browser", async ({
+    page,
+  }) => {
+    await page.addInitScript(() => localStorage.setItem("atelier-theme", "dark"));
+    await page.goto("/en/does-not-exist");
+
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("This page does not exist");
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(23, 25, 22)");
+  });
+
+  test("a 404 page follows the system preference on a first visit", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.goto("/fa/projects/not-a-project");
+
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("این صفحه وجود ندارد");
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  });
 });

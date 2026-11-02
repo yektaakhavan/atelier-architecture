@@ -36,7 +36,14 @@ main-thread time (see section 6). Cards used inside client components need their
 message subset.
 
 **Client messages.** `NextIntlClientProvider` receives only the namespaces client components use
-(`CLIENT_NAMESPACES` in the locale layout). Page copy such as the home text never reaches the browser as JSON.
+(`CLIENT_NAMESPACES` in `src/i18n/client-namespaces.ts`). Page copy such as the home text never reaches the
+browser as JSON.
+
+This is easy to get wrong silently: a namespace missing from the list is not a build error. next-intl logs
+`MISSING_MESSAGE` and renders raw keys, and unit tests render with _every_ message so they cannot notice. It
+happened once (the journal archive shipped without its messages). A test now walks the import graph from every
+`"use client"` file, collects each `useTranslations()` namespace it can reach, and fails if one is missing from
+the list (or listed without being used), naming the files involved.
 
 ## 2. Internationalisation
 
@@ -84,6 +91,15 @@ otherwise the system preference. It is a self-contained string in `lib/theme.ts`
 every combination of stored value and system preference and compares the result with the typed
 `resolveTheme()`, so the two cannot drift. The browser suite also blocks **every** script bundle and verifies
 the page still renders dark, which proves the inline script alone does the job.
+
+**Pages React renders only in the browser.** For `notFound()` responses Next.js 16 sends an empty shell and
+renders the layout in the browser (see section 10). React never executes a `<script>` it creates itself and
+warns about it in development, so on those pages the inline script above would not run, and a visitor with the
+dark theme saved got a _light_ 404 page. `ThemeScript` therefore renders the inline script only during server
+rendering and hydration (a `useSyncExternalStore` whose server snapshot is `true`), where it is part of the
+HTML and runs before first paint. When the page is rendered only in the browser it creates no script and a
+layout effect applies the saved theme instead (`applyStoredTheme`). 404 pages therefore follow the saved
+theme, with a brief light flash because their content already needs JavaScript.
 
 The toggle reads the theme through `useSyncExternalStore` on the `<html>` attribute (server snapshot "light",
 corrected immediately after hydration), and both icons are rendered and swapped with CSS so the icon is right
@@ -179,7 +195,13 @@ Lessons from building it:
 - **jsdom is not a browser.** Everything passed in HTML and jsdom checks while the site was, in a real browser,
   unstyled at one point and overflowing horizontally at 320 px on another page. Browser tests caught both.
 - **A test that has never failed has not proved anything.** The overflow test was checked by temporarily
-  reintroducing the bug and confirming it fails (page 384 px wide in a 320 px viewport).
+  reintroducing the bug and confirming it fails (page 384 px wide in a 320 px viewport). The same was done for
+  the namespace and theme fixes below.
+- **A quiet console is a test.** Visual, structural and accessibility checks all passed while the journal archive
+  logged dozens of `MISSING_MESSAGE` errors per page load and 404 pages logged a React error and lost the dark
+  theme. `console.spec.ts` now loads every page in both languages (and navigates client-side) and fails on any
+  console error or warning, or on a translation key leaking into the page text. It runs against the production
+  build, so development-only warnings still need an occasional look in `npm run dev`.
 - **Check what you are actually testing.** An early run silently hit a stale server on the same port. The test
   harness now refuses to start if the port is taken and verifies the stylesheet is served.
 - **Repeat performance runs.** See section 6.
@@ -196,7 +218,9 @@ rendered in the browser. Several alternatives were tried (a force-dynamic catch-
 nested route-group layout, the experimental `globalNotFound`, `notFound()` from static and dynamic pages) and
 all behaved the same, and Next's own source shows this recovery path is deliberate. The cost is that 404 pages
 need JavaScript to show content, which does not matter for pages that should not be indexed. The real-browser
-suite verifies Persian 404s (status, text, `lang`, `dir`, working links).
+suite verifies Persian 404s (status, text, `lang`, `dir`, working links, and that they follow the saved or
+system theme). Because the layout is rendered in the browser there, anything in it that only works when
+server-rendered (an inline script, for example) needs a browser-side fallback; see section 4.
 
 ## 11. Dependencies deliberately not used
 
