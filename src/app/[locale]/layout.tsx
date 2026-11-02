@@ -3,23 +3,14 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getDirection } from "@/features/localization/locales";
+import { CLIENT_NAMESPACES } from "@/i18n/client-namespaces";
 import { routing } from "@/i18n/routing";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { ThemeScript } from "@/features/theme/theme-script";
 import { fontVariables } from "@/lib/fonts";
 import { siteUrl } from "@/lib/seo";
-import { themeInitScript } from "@/lib/theme";
 import "../globals.css";
-
-// Client components only receive the namespaces they use; the rest stays on the server.
-const CLIENT_NAMESPACES = [
-  "Theme",
-  "LanguageSwitcher",
-  "Nav",
-  "Contact",
-  "Projects",
-  "ProjectDetail",
-] as const;
 
 type LayoutProps = { children: React.ReactNode; params: Promise<{ locale: string }> };
 
@@ -53,7 +44,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const clientMessages = Object.fromEntries(CLIENT_NAMESPACES.map((ns) => [ns, messages[ns]]));
 
   return (
-    // suppressHydrationWarning: the init script sets data-theme before React hydrates.
+    // suppressHydrationWarning: the theme script sets data-theme before React hydrates.
     <html
       lang={locale}
       dir={getDirection(locale)}
@@ -61,7 +52,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <ThemeScript />
       </head>
       <body>
         <NextIntlClientProvider messages={clientMessages}>
