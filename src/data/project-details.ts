@@ -29,7 +29,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "Volumes were shifted around the root zone and the wall became the retaining edge of a terraced garden.",
       fa: "حجم‌ها دور ناحیه ریشه جابه‌جا شدند و دیوار به لبه‌ی نگهدارنده‌ی باغی پلکانی تبدیل شد.",
     },
-    gallery: gallery("olive", "plan", "section", "stairs"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/CasaOlivo-3.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/CasaOlivo-1.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/CasaOlivo-2.jpg" },
+    ],
   },
   "courtyard-house-isfahan": {
     area: 380,
@@ -55,7 +59,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "A deep courtyard, thick walls and a wind-catching tower keep the interior cool without mechanical cooling.",
       fa: "حیاط عمیق، دیوارهای ضخیم و بادگیر، فضای داخلی را بدون سرمایش مکانیکی خنک نگه می‌دارند.",
     },
-    gallery: gallery("brick", "facade", "plan", "stairs"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/CourtyardHouse-1.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/CourtyardHouse-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/CourtyardHouse-3.jpg" },
+    ],
   },
   "north-light-studios": {
     area: 1850,
@@ -81,7 +89,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "A regular grid and generous floor-to-ceiling height make each bay adaptable.",
       fa: "شبکه‌ی منظم و ارتفاع سخاوتمندانه‌ی طبقات، هر دهانه را سازگار می‌کند.",
     },
-    gallery: gallery("stone", "section", "plan", "volumes"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/NorthLightStudios-1.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/NorthLightStudios-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/NorthLightStudios-3.jpg" },
+    ],
   },
   "salt-pavilion": {
     area: 140,
@@ -107,7 +119,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "A shallow raft foundation and a thin shell roof kept the structure light and economical.",
       fa: "پی گسترده‌ی کم‌عمق و سقف پوسته‌ای نازک سازه را سبک و اقتصادی نگه داشتند.",
     },
-    gallery: gallery("night", "volumes", "stairs", "facade"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/SaltPavilion-3.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/SaltPavilion-1.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/SaltPavilion-2.jpg" },
+    ],
   },
   "oak-and-lime-apartment": {
     area: 96,
@@ -133,7 +149,12 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "Walls were opened up and the oak wall gathered all services into one calm line.",
       fa: "دیوارها باز شدند و دیوار بلوطی همه‌ی خدمات را در یک خط آرام جمع کرد.",
     },
-    gallery: gallery("stone", "section", "volumes", "stairs"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/Oak&LimeApartment-4.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/Oak&LimeApartment-1.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/Oak&LimeApartment-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/Oak&LimeApartment-3.jpg" },
+    ],
   },
   "douro-terrace-hotel": {
     area: 2600,
@@ -159,7 +180,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "The rooms were built on the line of the old terraces, so no new cuts were needed.",
       fa: "اتاق‌ها روی خط تراس‌های قدیمی ساخته شدند، پس برش تازه‌ای لازم نبود.",
     },
-    gallery: gallery("olive", "facade", "section", "plan"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/DouroTerraceHotel-1.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/DouroTerraceHotel-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/DouroTerraceHotel-3.jpg" },
+    ],
   },
   "brick-mill-renewal": {
     area: 3200,
@@ -185,7 +210,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "Walls were stitched and grouted, and a light steel roof now carries the loads.",
       fa: "دیوارها دوخته و تزریق شدند و حالا یک بام فولادی سبک بارها را تحمل می‌کند.",
     },
-    gallery: gallery("brick", "section", "stairs", "plan"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/BrickMillRenewal-1.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/BrickMillRenewal-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/BrickMillRenewal-3.jpg" },
+    ],
   },
   "canopy-offices": {
     area: 5400,
@@ -211,7 +240,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       en: "Vertical fins on the west and a deep canopy above cut solar gain before it reaches the glass.",
       fa: "پره‌های عمودی در غرب و سایه‌بان عمیق بالا، تابش خورشید را پیش از رسیدن به شیشه کم می‌کنند.",
     },
-    gallery: gallery("stone", "facade", "section", "plan"),
+    gallery: [
+      { art: "plan", tone: "olive", src: "/images/projects/CanopyOffices-1.jpg" },
+      { art: "section", tone: "olive", src: "/images/projects/CanopyOffices-2.jpg" },
+      { art: "stairs", tone: "olive", src: "/images/projects/CanopyOffices-3.jpg" },
+    ],
   },
 };
 

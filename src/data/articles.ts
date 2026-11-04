@@ -11,7 +11,7 @@ export const articles: readonly Article[] = [
     publishedAt: "2026-09-18",
     featured: true,
     author: 2,
-    image: { art: "section", tone: "stone" },
+    image: { art: "section", tone: "stone", src: "/images/article/Article-1.jpg" },
     title: { en: "Daylight in small rooms", fa: "نور روز در اتاق‌های کوچک" },
     excerpt: {
       en: "Small rooms rarely lack light; they lack a clear path for it. Habits that make a modest flat feel generous.",
@@ -58,7 +58,7 @@ export const articles: readonly Article[] = [
     publishedAt: "2026-08-27",
     featured: false,
     author: 3,
-    image: { art: "facade", tone: "olive" },
+    image: { art: "facade", tone: "olive", src: "/images/article/Article-2.jpg" },
     title: { en: "Why we keep returning to lime plaster", fa: "چرا مدام به گچ و آهک برمی‌گردیم" },
     excerpt: {
       en: "It breathes, it repairs itself and it ages with grace. A short case for the oldest wall finish we still use.",
@@ -106,7 +106,7 @@ export const articles: readonly Article[] = [
     featured: true,
     author: 3,
     relatedProject: "brick-mill-renewal",
-    image: { art: "arches", tone: "brick" },
+    image: { art: "arches", tone: "brick", src: "/images/article/Article-5.jpg" },
     title: { en: "Reuse before rebuild", fa: "بازاستفاده پیش از ساخت دوباره" },
     excerpt: {
       en: "The greenest building is often the one that is already standing. How we decide what an old structure can still carry.",
@@ -154,7 +154,7 @@ export const articles: readonly Article[] = [
     featured: false,
     author: 1,
     relatedProject: "courtyard-house-isfahan",
-    image: { art: "arches", tone: "olive" },
+    image: { art: "arches", tone: "olive", src: "/images/article/Article-4.jpg" },
     title: { en: "The courtyard, reconsidered", fa: "بازاندیشی حیاط" },
     excerpt: {
       en: "An old idea that solves very current problems: shade, privacy and a calm centre for the home.",
@@ -199,7 +199,7 @@ export const articles: readonly Article[] = [
     publishedAt: "2026-05-14",
     featured: false,
     author: 2,
-    image: { art: "volumes", tone: "night" },
+    image: { art: "volumes", tone: "night", src: "/images/article/Article-3.jpg" },
     title: {
       en: "Evening light: choose warmth over brightness",
       fa: "نور شبانه: گرمی را بر روشنی ترجیح دهید",
@@ -246,7 +246,7 @@ export const articles: readonly Article[] = [
     featured: false,
     author: 2,
     relatedProject: "oak-and-lime-apartment",
-    image: { art: "plan", tone: "stone" },
+    image: { art: "plan", tone: "stone", src: "/images/article/Article-6.jpg" },
     title: {
       en: "Case study: one oak wall, a whole flat",
       fa: "مطالعه‌ی موردی: یک دیوار بلوطی، یک آپارتمان کامل",

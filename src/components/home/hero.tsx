@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { ArtImage } from "@/components/shared/art-image";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/link";
+import { ProjectImage } from "../projects/project-image";
 
 export function Hero() {
   const t = useTranslations("Home");
@@ -39,12 +40,18 @@ export function Hero() {
 
         <figure className="animate-rise md:col-span-5 [animation-delay:180ms]">
           <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-            <ArtImage
+            <ProjectImage
+              image={{ art: "volumes", tone: "olive", src: "/images/home/hero.jpg" }}
+              alt={t("heroAlt")}
+              priority
+              sizes="(min-width: 768px) 40vw, 100vw"
+            />
+            {/* <ArtImage
               variant="volumes"
               tone="olive"
               priority
               className="absolute inset-0 h-full w-full"
-            />
+            /> */}
           </div>
           <figcaption className="mt-3 text-xs text-muted">{t("heroCaption")}</figcaption>
         </figure>
