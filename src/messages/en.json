@@ -13,6 +13,7 @@
   "Home": {
     "heroEyebrow": "Contemporary architecture & interiors",
     "heroTitle": "Architecture that <em>listens</em> to the site.",
+    "heroAlt": "Architectural building image on the homepage",
     "heroText": "ATELIER is a fictional studio designing homes, workplaces and public rooms around light, material and the quiet of well-judged space.",
     "ctaProjects": "View projects",
     "ctaAbout": "About the studio",
@@ -211,6 +212,7 @@
     "eyebrow": "About the studio",
     "title": "A small studio with a long view.",
     "intro": "ATELIER is a fictional architecture practice invented for this portfolio. The story below shows the kind of studio the site is designed to represent.",
+    "heroAlt": "Architectural building image in the studio story section",
     "storyTitle": "Story",
     "storyText1": "The studio began as two architects sharing a drawing table and a belief that houses should be designed from the inside out.",
     "storyText2": "Today a small team works on homes, workplaces and cultural rooms. Staying small is deliberate: everyone who draws a project also visits its site.",
