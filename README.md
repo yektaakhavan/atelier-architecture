@@ -1,239 +1,463 @@
+
 # ATELIER — Architecture & Living
 
-A bilingual (English / Persian, LTR / RTL) portfolio website for a **fictional** contemporary architecture
-studio, built as a frontend engineering showcase: Next.js App Router, strict TypeScript, a custom design
-system, real filtering and search, an accessible gallery, and an automated test suite that runs in a real
-browser.
+A bilingual (English / Persian) architecture studio portfolio built with Next.js 16, React 19, and TypeScript. Featuring a custom design system, RTL/LTR layouts, interactive project filtering, accessible galleries, and comprehensive automated testing.
 
-> **This is a demo.** ATELIER, its projects, people, articles and contact details are invented. The contact
-> form sends nothing. All artwork is generated placeholder illustration, not photography.
-> See [Demo limitations](#demo-limitations).
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ATELIER-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://atelier-architecture-1ta.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Playwright](https://img.shields.io/badge/Playwright-Tested-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-Tested-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
 
-![Home page, English, light theme](docs/screenshots/home-en-light.png)
+> **Project type:** Frontend engineering showcase.
+>
+> ATELIER is a fictional contemporary architecture studio. Its projects, team members, articles, statistics, and contact details are sample content. Artwork is generated placeholder illustration, and the contact form does not submit data. See [Demo Limitations](#demo-limitations).
 
-|                                                             |                                                              |
-| ----------------------------------------------------------- | ------------------------------------------------------------ |
-| ![Home, Persian, dark](docs/screenshots/home-fa-dark.png)   | ![Featured projects](docs/screenshots/featured-projects.png) |
-| ![Projects archive](docs/screenshots/projects-archive.png)  | ![Project detail](docs/screenshots/project-detail.png)       |
-| ![Persian article](docs/screenshots/journal-article-fa.png) | ![Lightbox gallery](docs/screenshots/lightbox.png)           |
+---
 
-Mobile: Persian menu and form validation (right-to-left, dark and light).
+## Table of Contents
 
-<img src="docs/screenshots/mobile-menu-fa.png" alt="Persian mobile menu" width="240"> <img src="docs/screenshots/mobile-contact-errors-fa.png" alt="Persian contact form with validation errors" width="240">
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture & Key Decisions](#architecture--key-decisions)
+- [Project Structure](#project-structure)
+- [Testing](#testing)
+- [Performance](#performance)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Demo Limitations](#demo-limitations)
+- [Author](#author)
+
+---
+
+## Overview
+
+ATELIER is a responsive, bilingual portfolio website designed for a fictional contemporary architecture studio.
+
+The project focuses on combining visual design with practical frontend engineering. It goes beyond static pages by implementing interactive features, URL-based state management, accessible components, localized content, and automated quality checks.
+
+The website supports both English and Persian, with complete left-to-right (LTR) and right-to-left (RTL) layouts.
+
+It includes a project archive, individual project pages, a journal, service descriptions, and a validated contact form.
+
+The application is built with Next.js App Router and strict TypeScript, using a custom design system and reusable components.
+
+## Screenshots
+
+### Homepage
+
+![Home page - English, light theme](docs/screenshots/home-en-light.png)
+
+### Homepage & Featured Projects
+
+| Persian Homepage — Dark Theme | Featured Projects |
+| --- | --- |
+| ![Persian home page](docs/screenshots/home-fa-dark.png) | ![Featured projects](docs/screenshots/featured-projects.png) |
+
+### Projects & Project Details
+
+| Projects Archive | Project Detail |
+| --- | --- |
+| ![Projects archive](docs/screenshots/projects-archive.png) | ![Project detail](docs/screenshots/project-detail.png) |
+
+### Journal & Gallery
+
+| Persian Journal Article | Lightbox Gallery |
+| --- | --- |
+| ![Journal article](docs/screenshots/journal-article-fa.png) | ![Lightbox gallery](docs/screenshots/lightbox.png) |
+
+### Mobile Experience
+
+<img src="docs/screenshots/mobile-menu-fa.png" alt="Persian mobile navigation menu" width="240"> <img src="docs/screenshots/mobile-contact-errors-fa.png" alt="Persian contact form validation" width="240">
+
+---
 
 ## Features
 
-- **Two languages, two directions.** `/en` and `/fa` for every page, a language switcher that keeps you on the
-  equivalent page _and_ its query string, translated metadata, locale-aware numbers and dates (Persian digits,
-  Persian calendar), and logical CSS so RTL is a property of the layout, not a second copy of it.
-- **Light and dark themes**, both designed (not inverted), with no flash on load, the saved choice remembered,
-  and the system preference respected on a first visit.
-- **Projects archive** with type, year and location filters, name search (works across languages), sorting,
-  result count, empty state, and filter state kept in the URL so a filtered view can be shared.
-- **Project pages** with facts, concept, materials, challenge and solution, a keyboard-operable lightbox,
-  related projects and breadcrumbs.
-- **Journal** with featured articles, search, categories, locale-formatted dates, reading time and related
-  articles.
-- **Services, About, Contact, Privacy, Terms**, and a designed 404.
-- **Contact form** with Zod validation, translated error messages, focus management, loading/success/error
-  states and double-submit protection. It is wired to a replaceable demo service.
-- **Accessibility** targeted at WCAG 2.2 AA: semantic HTML, skip link, visible focus, labelled controls,
-  native `<dialog>` for the menu and lightbox, reduced-motion support, and automated axe audits in CI.
-- **SEO**: per-page metadata, canonical and hreflang alternates, `sitemap.xml`, `robots.txt`, and structured
-  data limited to what is true of the content (breadcrumbs, articles).
+### Localization & Internationalization
 
-## Tech stack
+- English and Persian language support.
+- Complete LTR and RTL layouts.
+- Locale-aware routing with `/en` and `/fa` prefixes.
+- Language switcher that preserves the equivalent page and query parameters.
+- Translated page metadata and SEO alternates.
+- Localized numbers, dates, and Persian calendar formatting.
+- Type-safe translation messages.
 
-| Area          | Choice                                                                     |
-| ------------- | -------------------------------------------------------------------------- |
-| Framework     | Next.js 16 (App Router), React 19                                          |
-| Language      | TypeScript 6, `strict` plus `noUncheckedIndexedAccess`                     |
-| Styling       | Tailwind CSS 4 with CSS-variable design tokens, `class-variance-authority` |
-| i18n          | `next-intl` 4 (typed messages, locale routing through `proxy.ts`)          |
-| Forms         | React Hook Form + Zod 4                                                    |
-| Icons / fonts | `lucide-react`; Inter Tight, Fraunces and Vazirmatn, self-hosted (OFL)     |
-| Unit tests    | Vitest + React Testing Library (jsdom)                                     |
-| Browser tests | Playwright + `@axe-core/playwright`                                        |
-| Quality       | ESLint 9 (flat config), Prettier, Conventional Commits                     |
+### Design & User Experience
 
-Libraries often assumed for a project like this that are deliberately **not** used (no real need): shadcn/ui,
-Zustand, TanStack Query, Embla Carousel and Motion. See [technical decisions](docs/technical-decisions.md).
+- Custom design system with CSS-variable design tokens.
+- Independently designed light and dark themes.
+- Theme preference persistence and system preference detection.
+- Flash-free theme initialization.
+- Responsive layouts across desktop, tablet, and mobile.
+- Reduced-motion support.
+- Custom typography with self-hosted fonts.
 
-## Getting started
+### Projects Archive
 
-Requirements: **Node.js 20.9 or newer** and npm.
+- Project filtering by type, year, and location.
+- Search across project names in both languages.
+- Sorting and result counts.
+- Empty-state handling.
+- Filter and search state synchronized with URL query parameters.
+- Shareable filtered views.
+
+### Project Details
+
+- Individual project pages with structured information.
+- Project facts, concepts, materials, challenges, and solutions.
+- Interactive, keyboard-operable image gallery.
+- Accessible lightbox.
+- Related projects and breadcrumbs.
+
+### Journal
+
+- Featured articles and article details.
+- Search and category filtering.
+- Locale-formatted publication dates.
+- Reading-time calculation.
+- Related articles.
+
+### Contact Form
+
+- React Hook Form and Zod validation.
+- Translated validation messages.
+- Accessible error handling and focus management.
+- Loading, success, and error states.
+- Double-submission protection.
+- Replaceable service layer for future backend integration.
+
+### Accessibility & SEO
+
+- Semantic HTML and accessible form controls.
+- Keyboard navigation and visible focus indicators.
+- Skip navigation link.
+- Native HTML `<dialog>` for navigation and gallery interactions.
+- Reduced-motion support.
+- WCAG 2.2 AA accessibility targets.
+- Automated accessibility audits with axe-core.
+- Per-page metadata and canonical URLs.
+- `hreflang` alternates.
+- Sitemap and robots.txt.
+- Structured data for articles and breadcrumbs.
+- Custom 404 page.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+| Technology | Purpose |
+| --- | --- |
+| Next.js 16 (App Router) | Application framework and routing |
+| React 19 | UI development |
+| TypeScript 6 | Static typing and type safety |
+| Tailwind CSS 4 | Styling and responsive layouts |
+| next-intl 4 | Localization and internationalized routing |
+| class-variance-authority | Component variants |
+| React Hook Form | Form state management |
+| Zod 4 | Schema validation |
+| lucide-react | Icons |
+
+### Testing & Code Quality
+
+| Technology | Purpose |
+| --- | --- |
+| Vitest | Unit testing |
+| React Testing Library | Component testing |
+| Playwright | Browser and end-to-end testing |
+| @axe-core/playwright | Accessibility audits |
+| ESLint 9 | Code quality and linting |
+| Prettier | Code formatting |
+
+### Development & Build Tools
+
+| Technology | Purpose |
+| --- | --- |
+| npm | Package management |
+| Turbopack | Development and build tooling |
+| Node.js | Runtime |
+| Conventional Commits | Commit message conventions |
+
+---
+
+## Architecture & Key Decisions
+
+**App Router & Feature-Based Organization**
+
+The application uses Next.js App Router with locale-based routing. Components, feature logic, data, and shared utilities are organized separately to keep responsibilities clear and maintainable.
+
+**Type-Safe Localization**
+
+`next-intl` handles locale routing and translations. English and Persian messages are type-checked, and automated tests ensure both language files maintain matching keys and placeholders.
+
+**Custom Design System**
+
+Instead of relying on a pre-built component library, the interface uses reusable components, CSS-variable design tokens, and `class-variance-authority` for consistent component variants.
+
+Light and dark themes are designed independently rather than using simple color inversion.
+
+**URL-Based Project Filtering**
+
+Project filters, sorting, and search are synchronized with URL query parameters. This allows visitors to share filtered archive views and return to the same state through browser navigation.
+
+**Accessible Native Components**
+
+Native browser capabilities such as `<dialog>` are used for interactive navigation and galleries. This reduces unnecessary dependencies while supporting keyboard interaction and accessibility.
+
+**Localized Content & Structured Data**
+
+Project and article content is stored in typed data modules with translations for both supported languages. Locale-aware formatting handles dates, numbers, and reading times.
+
+**Replaceable Contact Service**
+
+Contact form submission is separated into a service layer. The current implementation uses a demo service that can be replaced with a real API without changing the form's main logic.
+
+**Performance & Bundle Control**
+
+The project uses optimized Next.js image handling, localized client namespaces, and a bundle-size budget check to keep unnecessary JavaScript out of the browser.
+
+---
+
+## Project Structure
+
+```text
+src/
+├── app/
+│   ├── [locale]/              # Localized application pages
+│   ├── art/                   # Generated placeholder artwork
+│   ├── globals.css            # Design tokens and global styles
+│   ├── sitemap.ts
+│   ├── robots.ts
+│   └── icon.svg
+│
+├── components/
+│   ├── ui/                    # Reusable UI components
+│   ├── shared/                # Shared sections and utilities
+│   ├── layout/                # Header, footer, navigation
+│   ├── forms/                 # Form components
+│   ├── home/
+│   ├── projects/
+│   ├── services/
+│   ├── about/
+│   └── journal/
+│
+├── features/                  # Feature-specific logic
+├── data/                      # Typed bilingual content
+├── messages/                  # en.json and fa.json
+├── i18n/                      # Localization configuration
+├── lib/                       # Shared utilities and helpers
+├── services/                  # Replaceable service layer
+└── types/                     # Shared TypeScript types
+│
+tests/
+└── e2e/                       # Playwright browser tests
+│
+scripts/                       # Build and screenshot utilities
+docs/
+└── screenshots/               # README screenshots
+```
+
+---
+
+## Testing
+
+The project includes unit, component, browser, and accessibility tests.
+
+### Unit & Component Tests
+
+Implemented with **Vitest** and **React Testing Library**.
+
+Coverage includes:
+
+- Component behavior and rendering.
+- Feature logic and utility functions.
+- Data validation and translation consistency.
+- Localization and project content integrity.
+
+Run:
+
+```bash
+npm test
+```
+
+### End-to-End & Browser Tests
+
+Implemented with **Playwright**.
+
+The browser test suite covers:
+
+- Visitor journeys in English and Persian.
+- Navigation and language switching.
+- Project search, filters, sorting, and URL state.
+- Gallery and lightbox keyboard interaction.
+- Contact form validation and submission states.
+- Theme behavior and persistence.
+- Responsive layouts and horizontal overflow.
+- Reduced-motion behavior.
+- Browser console errors and broken links.
+- 404 page behavior.
+- Accessibility audits with axe-core.
+
+Install Chromium once:
+
+```bash
+npx playwright install chromium
+```
+
+Run:
+
+```bash
+npm run test:e2e
+```
+
+The suite includes more than 170 browser tests and 200 unit and component tests.
+
+---
+
+<!--
+## Performance
+
+Lighthouse results measured on the production build using its mobile simulation profile (4× CPU slowdown and slow 4G).
+
+| Page | Performance | Accessibility | Best Practices | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| Home | 95 | 100 | 100 | 100 |
+| Project Detail | 97 | 100 | 100 | 100 |
+| Article | 95 | 100 | 100 | 100 |
+| Journal | 95 | 100 | 100 | 100 |
+| Projects Archive | 88 | 100 | 100 | 100 |
+ -->
+Additional performance considerations:
+
+- First-load JavaScript is kept within defined bundle budgets.
+- Page bundles are approximately 165–175 KB gzip, with the contact page around 207 KB.
+- Image loading is optimized through Next.js image handling.
+- Client-side translation namespaces are limited to reduce unnecessary JavaScript.
+- `npm run check:bundle` checks first-load JavaScript budgets.
+
+> Lighthouse results may vary between runs. The Projects Archive still has an LCP above 2.5 seconds in the simulated mobile environment.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20.9 or newer
+- npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/yektaakhavan/atelier-architecture.git
+cd atelier-architecture
+```
+
+Install dependencies:
 
 ```bash
 npm install
-cp .env.example .env.local   # then set NEXT_PUBLIC_SITE_URL, see below
-npm run dev                  # http://localhost:3000, redirects to /en
 ```
 
-Production build:
+Create the environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+### Environment Variables
+
+Configure the public site URL in `.env.local`:
+
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+For production, replace it with the deployed public origin:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+This variable is used for canonical URLs, hreflang alternates, sitemap generation, and structured data. It is evaluated at build time.
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+The application redirects to the default English locale.
+
+### Production Build
 
 ```bash
 npm run build
 npm run start
 ```
 
-### Environment variables
+---
 
-| Variable               | Purpose                                                                                                                                                                                                                                                               |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL` | Public origin (for example `https://example.com`). Used for canonical URLs, hreflang alternates, the sitemap and structured data. Set it at **build time**; with a wrong value, search tools flag the canonical link as invalid. Defaults to `http://localhost:3000`. |
+## Available Scripts
 
-## Scripts
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript checks |
+| `npm test` | Run unit and component tests |
+| `npm run test:watch` | Run tests in watch mode |
+| `npm run test:e2e` | Run Playwright browser tests |
+| `npm run check:bundle` | Check first-load JavaScript budgets |
+| `npm run docs:screenshots` | Regenerate README screenshots |
+| `npm run format` | Format code with Prettier |
 
-| Script                     | What it does                                                                 |
-| -------------------------- | ---------------------------------------------------------------------------- |
-| `npm run dev`              | Development server                                                           |
-| `npm run build` / `start`  | Production build and server                                                  |
-| `npm run lint`             | ESLint                                                                       |
-| `npm run typecheck`        | `tsc --noEmit` (run it after a build; it reads Next's generated route types) |
-| `npm test`                 | Unit and component tests (Vitest)                                            |
-| `npm run test:watch`       | Vitest in watch mode                                                         |
-| `npm run test:e2e`         | Browser tests (Playwright). Builds and starts the site itself                |
-| `npm run check:bundle`     | Fails if any page's first-load JavaScript exceeds its budget                 |
-| `npm run docs:screenshots` | Regenerates the screenshots above from a running build                       |
-| `npm run format`           | Prettier                                                                     |
+---
 
-### Running the tests
+## Demo Limitations
 
-```bash
-npm test                       # 200+ unit and component tests, a few seconds
-npx playwright install chromium  # once
-npm run test:e2e               # 170+ browser tests, a few minutes
-```
+ATELIER is a frontend engineering demonstration, not a production website for a real architecture studio.
 
-The browser suite covers the full visitor journey in English and Persian, filters and URL state, the
-lightbox and contact form with the keyboard only, theme behaviour (including "no flash with every script
-blocked"), real 404 pages (including their theme), a check that every page loads with a completely quiet
-console and no leaked translation keys, a no-horizontal-scroll check across 10 pages, 2 languages and 5
-widths, reduced-motion behaviour, a link crawler, and axe accessibility audits for every page in both languages and
-both themes plus the open menu, lightbox, form errors and filter panel.
+- **Fictional content:** The studio, projects, team members, articles, statistics, and contact details are invented.
+- **Placeholder artwork:** Images are generated SVG illustrations, not real architectural photography.
+- **Contact form:** The form demonstrates validation and UI states but does not send messages to a backend.
+- **No authentication or database:** The project does not include an admin panel, user accounts, or persistent server-side data.
+- **Language content:** Persian and English copy is written for demonstration purposes and should be reviewed before real-world use.
+- **Browser testing:** Automated browser tests currently target Chromium. Safari and Firefox have not been tested.
+- **Deployment requirements:** The application requires a Node.js-compatible hosting environment with Next.js support. A pure static export is not supported because locale routing uses `proxy.ts`.
 
-If you cannot download Playwright's browsers (for example in a restricted network), point it at an existing
-Chromium: `CHROMIUM_PATH=/path/to/chromium npm run test:e2e`.
+---
 
-## Project structure
+## Author
 
-```
-src/
-├── app/
-│   ├── [locale]/            Pages: home, projects, services, about, journal, contact, privacy, terms, 404
-│   ├── art/[file]/          Build-time generated placeholder artwork (SVG files)
-│   ├── sitemap.ts, robots.ts, icon.svg
-│   └── globals.css          Design tokens (colours, type scale, motion) and base styles
-├── components/
-│   ├── ui/                  Button, Link, Container, Breadcrumb, Lightbox
-│   ├── shared/              SectionHeading, Section, CtaBand, ArtImage, LegalDocument, JsonLd
-│   ├── layout/              Header (with mobile menu), Footer, Logo
-│   ├── forms/               Field, TextInput, Select, Textarea, ContactForm
-│   ├── home/, projects/, services/, about/, journal/   Page sections and cards
-├── features/                Logic grouped by feature: localization, theme, projects, journal, contact
-├── data/                    Typed, bilingual sample content (projects, details, services, articles)
-├── messages/                en.json, fa.json (interface text, type-checked)
-├── i18n/                    Routing, navigation helpers, request config
-├── lib/                     cn(), theme script, SEO helpers, artwork generator, structured data
-├── services/                contact.ts, the swappable demo submission service
-└── types/                   Content types and the next-intl type augmentation
-tests/e2e/                   Playwright specs
-scripts/                     Bundle budget check, screenshot generator
-docs/                        Technical decisions, screenshots
-```
+**Yekta Akhavan**
 
-## Common tasks
+Frontend Engineer | React, Next.js, TypeScript
 
-### Add a project
-
-1. Add an entry to `src/data/projects.ts`: a unique URL-safe `slug`, `category`, `year`, a two-letter ISO
-   `country` code, `featured`, and `title`, `location` and `summary` in both languages.
-2. Add the matching entry to `src/data/project-details.ts` (same slug): concept, approach, materials,
-   challenge, solution, services, team and gallery, again in both languages.
-3. Run `npm test`. The data tests fail if a slug is duplicated, a translation is missing, or a project has no
-   details. Pages, filters, sitemap and static routes pick the project up automatically.
-
-To use real photography, put the files under `public/` and set `image.src` (and `src` on gallery items). The
-placeholder artwork is then ignored and `next/image` takes over. Give every image a meaningful `alt` in the
-data or messages before publishing.
-
-### Add a journal article
-
-Add it to `src/data/articles.ts`. Bodies are lists of `heading` / `paragraph` blocks; a test requires that both
-languages have the same block structure. Reading time and the formatted date are derived automatically.
-
-### Add or change interface text
-
-Edit **both** `src/messages/en.json` and `src/messages/fa.json`. Keys are type-checked (a typo is a compile
-error) and a test fails if the two files differ in keys or ICU placeholders. A client component can only use
-a namespace listed in `CLIENT_NAMESPACES` in `src/app/[locale]/layout.tsx`, which keeps the JavaScript sent
-to the browser small. A test fails if client code uses a namespace that is not listed (the list now lives in
-`src/i18n/client-namespaces.ts`).
-
-### Add a language
-
-Add the locale to `src/i18n/routing.ts` and `src/features/localization/locales.ts` (name and direction),
-create `src/messages/<locale>.json`, and add its text to the data files. TypeScript points out every place
-that still needs it.
-
-### Extend the design system
-
-Colours, the type scale and motion tokens live in `src/app/globals.css`. Light and dark values are defined
-side by side; text colours were checked against WCAG contrast ratios (the comments in the file record why the
-original olive and brick needed darker "ink" variants for text). Components use `class-variance-authority`
-variants (see `components/ui/button.tsx`) and `cn()`, which is configured to understand the custom
-`text-display` and `text-headline` sizes.
-
-### Replace the demo contact service
-
-`src/services/contact.ts` exports `submitContactRequest`. Replace its body with a `fetch` to your endpoint and
-keep the `ContactResult` return type; the form needs nothing else. Until then, an address ending in
-`@error.example` triggers the error state so it can be demonstrated.
-
-## Quality results
-
-Measured on the production build. Lighthouse used its mobile profile (simulated 4× CPU slowdown and slow 4G),
-so absolute numbers are pessimistic; run it yourself on your hardware.
-
-| Page             | Performance | Accessibility | Best practices | SEO | TBT    | CLS |
-| ---------------- | ----------- | ------------- | -------------- | --- | ------ | --- |
-| Home             | 95          | 100           | 100            | 100 | 250 ms | 0   |
-| Project detail   | 97          | 100           | 100            | 100 | 150 ms | 0   |
-| Article          | 95          | 100           | 100            | 100 | 170 ms | 0   |
-| Journal          | 95          | 100           | 100            | 100 | 250 ms | 0   |
-| Projects archive | 88          | 100           | 100            | 100 | 250 ms | 0   |
-
-Scores vary between runs (Total Blocking Time most of all), so use several runs before comparing. Mobile LCP
-on the archive page is still above 2.5 s in this simulation; the image itself loads in about 40 ms and the
-rest is hydration work. `npm run check:bundle` keeps first-load JavaScript within budget: about 165-175 KB
-gzip per page (about 207 KB for the contact page, which ships the form libraries), of which roughly 115 KB is
-React and the Next.js runtime. Legacy-browser polyfills carry `nomodule` and are not downloaded by modern
-browsers, so they are not counted.
-
-## Demo limitations
-
-- **Fictional content.** The studio, projects, people, articles, statistics and contact details are samples,
-  and the privacy and terms pages say so. Statistics on the home page are computed from the sample data.
-- **Placeholder artwork**, not photography. It is generated by `src/lib/art-svg.ts` and served as cached SVG
-  files from `/art/`.
-- **The contact form does not send anything.** There is no backend, database or authentication, by design.
-  Anything needing one (an admin area, image uploads, real form delivery) is future work.
-- **Persian and English copy were written for this demo** and should be reviewed by a native editor before
-  any real use.
-- **Tested in Chromium only.** Safari and Firefox have not been exercised.
-- **404 pages need JavaScript to render their content.** With Next.js 16.4.3 a `notFound()` response carries
-  the correct 404 status but an empty shell that the browser fills in; the content, language and direction
-  appear after hydration. Real browsers are tested; the raw HTML is not.
-- **Needs a Node server.** Locale routing runs in `proxy.ts`, so a pure static export is not possible; deploy
-  anywhere that runs `next start` (or a platform with native Next.js support).
-
-## Git workflow
-
-History follows [Conventional Commits](https://www.conventionalcommits.org) (`feat:`, `fix:`, `test:`,
-`perf:`, `docs:`, `chore:`), one logical change per commit, with lint, type-check and tests passing at each
-step. Bug-fix commits say what was found and how.
-
-## More
-
-- [Technical decisions](docs/technical-decisions.md): why the project is built the way it is.
-- Fonts are vendored under `src/assets/fonts` (SIL Open Font License 1.1).
+[![GitHub](https://img.shields.io/badge/GitHub-yektaakhavan-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/yektaakhavan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Yekta_Akhavan-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yekta-akhavan/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit_Website-000000?style=flat-square&logo=vercel&logoColor=white)](https://yekta-akhavan.vercel.app/)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:yekta.akhavan.dev@gmail.com)
