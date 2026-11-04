@@ -9,17 +9,17 @@ browser.
 > form sends nothing. All artwork is generated placeholder illustration, not photography.
 > See [Demo limitations](#demo-limitations).
 
-![Home page, English, light theme](docs/screenshots/home-en-light.jpg)
+![Home page, English, light theme](docs/screenshots/home-en-light.png)
 
 |                                                             |                                                              |
 | ----------------------------------------------------------- | ------------------------------------------------------------ |
-| ![Home, Persian, dark](docs/screenshots/home-fa-dark.jpg)   | ![Featured projects](docs/screenshots/featured-projects.jpg) |
-| ![Projects archive](docs/screenshots/projects-archive.jpg)  | ![Project detail](docs/screenshots/project-detail.jpg)       |
-| ![Persian article](docs/screenshots/journal-article-fa.jpg) | ![Lightbox gallery](docs/screenshots/lightbox.jpg)           |
+| ![Home, Persian, dark](docs/screenshots/home-fa-dark.png)   | ![Featured projects](docs/screenshots/featured-projects.png) |
+| ![Projects archive](docs/screenshots/projects-archive.png)  | ![Project detail](docs/screenshots/project-detail.png)       |
+| ![Persian article](docs/screenshots/journal-article-fa.png) | ![Lightbox gallery](docs/screenshots/lightbox.png)           |
 
 Mobile: Persian menu and form validation (right-to-left, dark and light).
 
-<img src="docs/screenshots/mobile-menu-fa.jpg" alt="Persian mobile menu" width="240"> <img src="docs/screenshots/mobile-contact-errors-fa.jpg" alt="Persian contact form with validation errors" width="240">
+<img src="docs/screenshots/mobile-menu-fa.png" alt="Persian mobile menu" width="240"> <img src="docs/screenshots/mobile-contact-errors-fa.png" alt="Persian contact form with validation errors" width="240">
 
 ## Features
 
